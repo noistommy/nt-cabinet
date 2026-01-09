@@ -1,0 +1,67 @@
+{
+  "hash": "32fdf5ec",
+  "configHash": "bb2b558d",
+  "lockfileHash": "b0110257",
+  "browserHash": "5b07efd7",
+  "optimized": {
+    "vue": {
+      "src": "../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "8496cf8e",
+      "needsInterop": false
+    },
+    "vitepress > @vue/devtools-api": {
+      "src": "../../../node_modules/vitepress/node_modules/@vue/devtools-api/dist/index.js",
+      "file": "vitepress___@vue_devtools-api.js",
+      "fileHash": "b4be1146",
+      "needsInterop": false
+    },
+    "vitepress > @vueuse/core": {
+      "src": "../../../node_modules/@vueuse/core/index.mjs",
+      "file": "vitepress___@vueuse_core.js",
+      "fileHash": "09a48b83",
+      "needsInterop": false
+    },
+    "noist-beui": {
+      "src": "../../../node_modules/noist-beui/dist/be-ui.es.js",
+      "file": "noist-beui.js",
+      "fileHash": "c1bd1209",
+      "needsInterop": false
+    },
+    "three": {
+      "src": "../../../node_modules/three/build/three.module.js",
+      "file": "three.js",
+      "fileHash": "7e45df46",
+      "needsInterop": false
+    },
+    "three/examples/jsm/loaders/GLTFLoader.js": {
+      "src": "../../../node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "file": "three_examples_jsm_loaders_GLTFLoader__js.js",
+      "fileHash": "fea8db88",
+      "needsInterop": false
+    },
+    "three/examples/jsm/controls/OrbitControls": {
+      "src": "../../../node_modules/three/examples/jsm/controls/OrbitControls.js",
+      "file": "three_examples_jsm_controls_OrbitControls.js",
+      "fileHash": "5e38591d",
+      "needsInterop": false
+    },
+    "three/examples/jsm/controls/OrbitControls.js": {
+      "src": "../../../node_modules/three/examples/jsm/controls/OrbitControls.js",
+      "file": "three_examples_jsm_controls_OrbitControls__js.js",
+      "fileHash": "e65c3d04",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-E6S3PJUB": {
+      "file": "chunk-E6S3PJUB.js"
+    },
+    "chunk-XV6CE6JT": {
+      "file": "chunk-XV6CE6JT.js"
+    },
+    "chunk-ABPFITGC": {
+      "file": "chunk-ABPFITGC.js"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.hDWL1cqG.js";const d=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"beui/vue-beui.md","filePath":"beui/vue-beui.md"}'),r={name:"beui/vue-beui.md"};function i(o,s,c,n,u,p){return a(),t("div")}const m=e(r,[["render",i]]);export{d as __pageData,m as default};

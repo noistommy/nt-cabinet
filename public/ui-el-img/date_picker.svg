@@ -1,0 +1,58 @@
+<svg width="300" height="150" viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="101" y="27" width="94" height="18" rx="3" fill="#E9E9E9" stroke="#D6D6D6" stroke-width="2"/>
+<rect x="106.5" y="34.5" width="9" height="5" stroke="#5D5D5D"/>
+<rect x="106" y="32" width="10" height="2" fill="#5D5D5D"/>
+<rect x="108" y="31" width="1" height="1" fill="#5D5D5D"/>
+<rect x="113" y="31" width="1" height="1" fill="#5D5D5D"/>
+<text fill="#5D5D5D" xml:space="preserve" style="white-space: pre" font-family="Inria Sans" font-size="10" font-weight="bold" letter-spacing="0em"><tspan x="122.752" y="39.265">YYYY-MM-DD</tspan></text>
+<rect x="101" y="49" width="94" height="74" rx="7" fill="white" stroke="#D6D6D6" stroke-width="2"/>
+<rect x="106" y="66" width="84" height="8" rx="4" fill="#D9D9D9"/>
+<circle cx="111" cy="70" r="2" fill="#5D5D5D"/>
+<circle cx="123" cy="70" r="2" fill="#5D5D5D"/>
+<circle cx="135" cy="70" r="2" fill="#5D5D5D"/>
+<circle cx="147" cy="70" r="2" fill="#5D5D5D"/>
+<circle cx="159" cy="70" r="2" fill="#5D5D5D"/>
+<circle cx="171" cy="70" r="2" fill="#5D5D5D"/>
+<circle cx="183" cy="70" r="2" fill="#5D5D5D"/>
+<circle cx="111" cy="80" r="2" fill="#D6D6D6"/>
+<circle cx="123" cy="80" r="2" fill="#D6D6D6"/>
+<circle cx="135" cy="80" r="2" fill="#D6D6D6"/>
+<circle cx="147" cy="80" r="2" fill="#5D5D5D"/>
+<circle cx="159" cy="80" r="2" fill="#5D5D5D"/>
+<circle cx="171" cy="80" r="2" fill="#5D5D5D"/>
+<circle cx="183" cy="80" r="2" fill="#5D5D5D"/>
+<circle cx="111" cy="88" r="2" fill="#5D5D5D"/>
+<circle cx="123" cy="88" r="2" fill="#5D5D5D"/>
+<circle cx="135" cy="88" r="2" fill="#5D5D5D"/>
+<circle cx="147" cy="88" r="2" fill="#5D5D5D"/>
+<circle cx="159" cy="88" r="2" fill="#5D5D5D"/>
+<circle cx="171" cy="88" r="2" fill="#5D5D5D"/>
+<circle cx="183" cy="88" r="2" fill="#5D5D5D"/>
+<circle cx="111" cy="96" r="2" fill="#5D5D5D"/>
+<circle cx="123" cy="96" r="2" fill="#5D5D5D"/>
+<circle cx="135" cy="96" r="2" fill="#5D5D5D"/>
+<circle cx="147" cy="96" r="2" fill="#5D5D5D"/>
+<circle cx="159" cy="96" r="2" fill="#5D5D5D"/>
+<circle cx="171" cy="96" r="2" fill="#5D5D5D"/>
+<circle cx="183" cy="96" r="2" fill="#5D5D5D"/>
+<circle cx="111" cy="104" r="2" fill="#5D5D5D"/>
+<circle cx="123" cy="104" r="2" fill="#5D5D5D"/>
+<circle cx="135" cy="104" r="2" fill="#5D5D5D"/>
+<circle cx="147" cy="104" r="2" fill="#5D5D5D"/>
+<circle cx="159" cy="104" r="2" fill="#5D5D5D"/>
+<circle cx="171" cy="104" r="2" fill="#5D5D5D"/>
+<circle cx="183" cy="104" r="2" fill="#5D5D5D"/>
+<circle cx="111" cy="112" r="2" fill="#5D5D5D"/>
+<circle cx="123" cy="112" r="2" fill="#5D5D5D"/>
+<circle cx="135" cy="112" r="2" fill="#5D5D5D"/>
+<circle cx="147" cy="112" r="2" fill="#5D5D5D"/>
+<circle cx="159" cy="112" r="2" fill="#5D5D5D"/>
+<circle cx="171" cy="112" r="2" fill="#5D5D5D"/>
+<circle cx="183" cy="112" r="2" fill="#D6D6D6"/>
+<circle cx="159" cy="96" r="4" fill="#D6D6D6"/>
+<circle cx="159" cy="96" r="3.42857" fill="currentColor"/>
+<circle cx="159" cy="96.0001" r="1.71429" fill="white"/>
+<path d="M171 60L169 58L171 56" stroke="#5D5D5D" stroke-linecap="round"/>
+<path d="M183 56L185 58L183 60" stroke="#5D5D5D" stroke-linecap="round"/>
+<rect x="106" y="56" width="28" height="4" rx="2" fill="#5D5D5D"/>
+</svg>

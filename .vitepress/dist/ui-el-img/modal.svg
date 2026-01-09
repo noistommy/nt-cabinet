@@ -1,0 +1,12 @@
+<svg width="300" height="150" viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="78" y="36" width="150" height="85" rx="8" fill="#E9E9E9"/>
+<rect x="72" y="30" width="148" height="83" rx="7" fill="white" stroke="#D6D6D6" stroke-width="2"/>
+<path d="M79 30H213C216.866 30 220 33.134 220 37V43H72V37C72 33.134 75.134 30 79 30Z" fill="#D6D6D6" stroke="#D6D6D6" stroke-width="2"/>
+<rect x="81" y="34" width="48" height="6" rx="3" fill="#5D5D5D"/>
+<rect x="94" y="63" width="98" height="4" rx="2" fill="#5D5D5D"/>
+<rect x="105" y="75" width="73" height="4" rx="2" fill="#5D5D5D"/>
+<rect x="179" y="93" width="34" height="13" rx="4" fill="currentColor"/>
+<rect x="186" y="97" width="20" height="5" rx="2.5" fill="white"/>
+<rect x="149" y="98" width="20" height="5" rx="2.5" fill="#5D5D5D"/>
+<path d="M213.657 36.9497L215.778 39.0711L215.071 39.7782L212.95 37.6569L210.828 39.7782L210.121 39.0711L212.243 36.9497L210.121 34.8284L210.828 34.1213L212.95 36.2426L215.071 34.1213L215.778 34.8284L213.657 36.9497Z" fill="#5D5D5D"/>
+</svg>

@@ -1,0 +1,42 @@
+div[class*='layout-'] {
+  display: flex;
+  .flexible-handle {
+    position: relative;
+    display: inline-block;
+    transition: all 250ms;
+    flex-shrink: 0;
+  }
+  &.layout-h {
+    .flexible-handle {
+      cursor: col-resize;
+      width: 5px;
+    }
+  }
+  &.layout-v {
+    flex-direction: column;
+    .flexible-handle {
+      cursor: row-resize;
+      height: 5px;
+    }
+  }
+  &:not(.reverse) {
+    // view 1
+    div:has(+ .flexible-handle) {
+      flex-shrink: 0;
+    }
+    //view 2
+    .flexible-handle + div {
+      flex-grow: 1;
+    }
+  }
+  &.reverse {
+    // view 1 - reverse
+    div:has(+ .flexible-handle) {
+      flex-grow: 1;
+      // width: calc(100% - (var(--side) * 1px + 5px));
+    }
+    .flexible-handle + div {
+      flex-shrink: 0;
+    }
+  }
+}
