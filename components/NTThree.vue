@@ -3,16 +3,18 @@
   import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
   import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
   
-  import {ref, reactive, computed, onMounted} from 'vue'
+  import {ref, reactive, computed, watch, onMounted} from 'vue'
   
   const isPen = ref(false)
+  const isIdle = ref(true)
+
   let a_speed = 1
   let model = null
   let mixer = null
   let actions = reactive({})
   let currentAction = null
-  let actionName = ref('Walking')
-  let forwardAction = ref('Walking')
+  let actionName = ref('Offencive Idle')
+  let forwardAction = ref('Standard Walking')
   let camera = null
   let renderer = null
   let containerW = 0
@@ -20,15 +22,29 @@
   
   let scrollCount = 0
   let scrollDir = 1
-  // const speeds = {
-  //   'Walking': 1,
-  //   'Walk_Slow': 1,
-  //   'Walk_Casual': 0.5,
-  //   'Ork_Walk': 0.3,
-  //   'Drunken': 0.5,
-  //   'Running': 2,
-  //   'Run_Fast': 4
-  // }
+  const speeds = {
+    'Walking': 1,
+    'Agree': 1,
+    'Boxing': 1,
+
+    'Ork_Walk': 0.3,
+    'Drunken': 0.5,
+    'Running': 2,
+    'Run_Fast': 4
+  }
+
+  const gesture = [
+    'Pitching', 
+    'Golf Chip', 
+    'Backflip', 
+    'Clapping', 
+    'Soccer Pass', 
+    'Climbing Rope', 
+    'Spinning',
+    'Treading Water',
+    'Waving'
+  ]
+
   const logs = reactive({
     camera: ''
   })
@@ -38,6 +54,8 @@
   })
     
   const container = ref(null);
+
+
   
   const ntThree = () => {
     const scene = new THREE.Scene()
@@ -46,12 +64,12 @@
     containerW = container.value.clientWidth
     containerH = container.value.clientHeight
     const ratio = containerW / containerH || 1
-    const frustumSize = 2
+    const frustumSize = 1.2
     const p_camera = new THREE.PerspectiveCamera(35, ratio, 0.1, 100)
     const o_camera = new THREE.OrthographicCamera(-frustumSize * ratio, frustumSize * ratio, frustumSize, -frustumSize, 0.1, 100);
   
-    camera = p_camera
-    camera.position.set(0, 1, 4)
+    camera = o_camera
+    camera.position.set(0, 1.5, 4)
   
     renderer = new THREE.WebGLRenderer({ 
       antialias: true,
@@ -99,8 +117,9 @@
   
   
     const loader = new GLTFLoader()
-    loader.load('/models/Tinokio.glb', gltf => {
+    loader.load('/models/tinokio_v3.0.glb', gltf => {
       model = gltf.scene
+      model.scale.set(0.01, 0.01, 0.01);
       model.traverse((child) => {
         if (child.isMesh) {
           child.castShadow = true
@@ -113,7 +132,7 @@
       gltf.animations.forEach(clip => {
         actions[clip.name] = mixer.clipAction(clip)
       })
-      playAnimation('Idle')
+      playAnimation(actionName.value)
 
   
       renderer.setAnimationLoop(animate);
@@ -125,12 +144,13 @@
     const clock = new THREE.Clock()
     const animate = () => {
       const deltaTime = clock.getDelta()
-      const scene_speed = 0.5
+      const scene_speed = 1
       mixer.update(deltaTime * scene_speed)
   
       if (isPen.value) controlCamera()
 
       if (scrollCount > 5) {
+        isIdle.value = false
         if (model.rotation.y <= Math.PI / 2) {
           model.rotation.y += 0.1
         }
@@ -147,9 +167,14 @@
                    
         // model.rotation.y = Math.PI / 2
       } else {
-        playAnimation('Idle')   
+        // playAnimation('Walk In Circle')    
         if (model.rotation.y <= 0) {
           model.rotation.y += 0.1
+        } else {
+          if (!isIdle.value) {
+            isIdle.value = true
+            actionName.value = 'Offencive Idle'
+          }
         }
       }
       // camera.position.y = 5        
@@ -171,6 +196,10 @@
       scrollCount = scrollEl.scrollTop
     })
 
+    setInterval(() => {
+      const num = parseInt(Math.random() * 100) % gesture.length
+      if (isIdle.value) playOnceAnimation(gesture[num])
+    }, 10000);
   }
   onMounted(ntThree)
   
@@ -198,6 +227,17 @@
       currentAction = actions[name]
       actionName.value = name
     }
+  }
+  function playOnceAnimation(name) {
+    actions[name].setLoop(THREE.LoopOnce)
+    actions[name].clampWhenFinished = true
+    currentAction?.fadeOut(0.3)
+    actions[name].reset().fadeIn(0.3).play()
+    currentAction = actions[name]
+    actionName.value = name
+    mixer.addEventListener('finished', () => {
+      playAnimation('Offencive Idle') 
+    })
   }
   const radius = 4;
   let angle = 0;
