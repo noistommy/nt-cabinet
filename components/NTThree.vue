@@ -7,6 +7,7 @@
   
   const isPen = ref(false)
   const isIdle = ref(true)
+  const lean = ref(0)
 
   let a_speed = 1
   let model = null
@@ -39,10 +40,13 @@
     'Backflip', 
     'Clapping', 
     'Soccer Pass', 
-    'Climbing Rope', 
-    'Spinning',
-    'Treading Water',
-    'Waving'
+    'Climbing Rope',
+    // 'Walk In Circle',
+    // 'Spinning',
+    // 'Treading Water',
+    'Waving',
+
+    'Entry'
   ]
 
   const logs = reactive({
@@ -64,12 +68,12 @@
     containerW = container.value.clientWidth
     containerH = container.value.clientHeight
     const ratio = containerW / containerH || 1
-    const frustumSize = 1.2
+    const frustumSize = 1.1
     const p_camera = new THREE.PerspectiveCamera(35, ratio, 0.1, 100)
     const o_camera = new THREE.OrthographicCamera(-frustumSize * ratio, frustumSize * ratio, frustumSize, -frustumSize, 0.1, 100);
   
     camera = o_camera
-    camera.position.set(0, 1.5, 4)
+    camera.position.set(0, 1.2, 4)
   
     renderer = new THREE.WebGLRenderer({ 
       antialias: true,
@@ -144,7 +148,7 @@
     const clock = new THREE.Clock()
     const animate = () => {
       const deltaTime = clock.getDelta()
-      const scene_speed = 1
+      const scene_speed = 0.8
       mixer.update(deltaTime * scene_speed)
   
       if (isPen.value) controlCamera()
@@ -200,8 +204,28 @@
       const num = parseInt(Math.random() * 100) % gesture.length
       if (isIdle.value) playOnceAnimation(gesture[num])
     }, 10000);
+    
+    window.addEventListener("deviceorientation", (event) => {
+      // if ((event.alpha > 45 && event.gamma < 0) || (event.alpha < 270 && event.gamma > 0) ) {
+      //   const num = parseInt(Math.random() * 100) % gesture.length
+      //   if (isIdle.value) playOnceAnimation(gesture[num])
+      // }
+      if (event.gamma > 10) {
+        lean.value = 1
+      } else if (event.gamma < -10) {
+        lean.value = -1
+      } else {
+        lean.value = 0
+      }
+    });
   }
   onMounted(ntThree)
+
+  watch(() => lean.value, value => {
+    console.log(value)
+      const num = parseInt(Math.random() * 100) % gesture.length
+      if (value && isIdle.value) playOnceAnimation(gesture[num])
+  })
   
   const setGrid = (size = 40, divisions = 40) => {
     return new THREE.GridHelper( size, divisions );
@@ -229,9 +253,9 @@
     }
   }
   function playOnceAnimation(name) {
+    currentAction?.fadeOut(0.3)
     actions[name].setLoop(THREE.LoopOnce)
     actions[name].clampWhenFinished = true
-    currentAction?.fadeOut(0.3)
     actions[name].reset().fadeIn(0.3).play()
     currentAction = actions[name]
     actionName.value = name
