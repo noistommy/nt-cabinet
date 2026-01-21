@@ -41,11 +41,11 @@
     'Clapping', 
     'Soccer Pass', 
     'Climbing Rope',
-    // 'Walk In Circle',
+    'Walk In Circle',
     // 'Spinning',
     // 'Treading Water',
     'Waving',
-
+    'Walk Left',
     'Entry'
   ]
 
@@ -200,16 +200,12 @@
       scrollCount = scrollEl.scrollTop
     })
 
-    setInterval(() => {
-      const num = parseInt(Math.random() * 100) % gesture.length
-      if (isIdle.value) playOnceAnimation(gesture[num])
-    }, 10000);
+    // setInterval(() => {
+    //   const num = parseInt(Math.random() * 100) % gesture.length
+    //   if (isIdle.value) playOnceAnimation(gesture[num])
+    // }, 10000);
     
     window.addEventListener("deviceorientation", (event) => {
-      // if ((event.alpha > 45 && event.gamma < 0) || (event.alpha < 270 && event.gamma > 0) ) {
-      //   const num = parseInt(Math.random() * 100) % gesture.length
-      //   if (isIdle.value) playOnceAnimation(gesture[num])
-      // }
       if (event.gamma > 10) {
         lean.value = 1
       } else if (event.gamma < -10) {
@@ -222,9 +218,12 @@
   onMounted(ntThree)
 
   watch(() => lean.value, value => {
-    console.log(value)
+      
       const num = parseInt(Math.random() * 100) % gesture.length
-      if (value && isIdle.value) playOnceAnimation(gesture[num])
+      if (value && isIdle.value) {
+        // console.log(value)
+        playOnceAnimation(gesture[num], false)
+      }
   })
   
   const setGrid = (size = 40, divisions = 40) => {
@@ -273,9 +272,12 @@
     camera.position.z = Math.sin(angle) * radius
     camera.position.y = 1
   }
+  const forwardList = ['Standard Walking', 'Soft Walking', 'Happy Walking', 'Running']
   const changeAction = () => {
-    forwardAction.value =  forwardAction.value === 'Running' ? 'Walking' : 'Running'
-    a_speed = forwardAction.value === 'Running' ? 2 : 1
+    let currentIndex = forwardList.findIndex(c => c === forwardAction.value)
+    let nextIndex = currentIndex + 1 === forwardList.length ? 0 : currentIndex + 1
+    forwardAction.value =  forwardList[nextIndex]
+    a_speed = forwardAction.value === 'Running' ? 2 : forwardAction.value === 'Soft Walking' ? 0.2 : 1
   }
   </script>
   
