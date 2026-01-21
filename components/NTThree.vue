@@ -205,21 +205,7 @@
     //   if (isIdle.value) playOnceAnimation(gesture[num])
     // }, 10000);
     
-    window.addEventListener("deviceorientation", (event) => {
-      if (event.gamma > 10) {
-        lean.value = 1
-        angle = Math.PI
-        controlCamera()
-      } else if (event.gamma < -10) {
-        lean.value = -1
-        angle = 0
-        controlCamera()
-      } else {
-        lean.value = 0
-        angle = Math.PI / 2
-        controlCamera()
-      }
-    });
+    requestDeviceOrientationPermission()
   }
   onMounted(ntThree)
 
@@ -284,6 +270,41 @@
     let nextIndex = currentIndex + 1 === forwardList.length ? 0 : currentIndex + 1
     forwardAction.value =  forwardList[nextIndex]
     a_speed = forwardAction.value === 'Running' ? 2 : forwardAction.value === 'Soft Walking' ? 0.2 : 1
+  }
+
+  function requestDeviceOrientationPermission() {
+    if (
+      typeof DeviceOrientationEvent !== 'undefined' &&
+      typeof DeviceOrientationEvent.requestPermission === 'function'
+    ) {
+      DeviceOrientationEvent.requestPermission()
+        .then(permissionState => {
+          if (permissionState === 'granted') {
+            window.addEventListener('deviceorientation', handleOrientation);
+          } else {
+            console.error('권한이 거부되었습니다.');
+          }
+        })
+        .catch(console.error);
+    } else {
+      // Android 또는 구형 기기 (권한 요청 불필요)
+      window.addEventListener('deviceorientation', handleOrientation);
+    }
+  }
+  const handleOrientation = (event) => {
+    if (event.gamma > 10) {
+      lean.value = 1
+      angle = Math.PI
+      controlCamera()
+    } else if (event.gamma < -10) {
+      lean.value = -1
+      angle = 0
+      controlCamera()
+    } else {
+      lean.value = 0
+      angle = Math.PI / 2
+      controlCamera()
+    }
   }
   </script>
   
