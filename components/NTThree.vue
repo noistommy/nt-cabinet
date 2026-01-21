@@ -73,7 +73,7 @@
     const o_camera = new THREE.OrthographicCamera(-frustumSize * ratio, frustumSize * ratio, frustumSize, -frustumSize, 0.1, 100);
   
     camera = o_camera
-    camera.position.set(0, 1.2, 4)
+    camera.position.set(0, 1.5, 4)
   
     renderer = new THREE.WebGLRenderer({ 
       antialias: true,
@@ -200,10 +200,10 @@
       scrollCount = scrollEl.scrollTop
     })
 
-    // setInterval(() => {
-    //   const num = parseInt(Math.random() * 100) % gesture.length
-    //   if (isIdle.value) playOnceAnimation(gesture[num])
-    // }, 10000);
+    setInterval(() => {
+      const num = parseInt(Math.random() * 100) % gesture.length
+      if (isIdle.value) playOnceAnimation(gesture[num])
+    }, 10000);
     
     requestDeviceOrientationPermission()
   }
@@ -257,8 +257,8 @@
   const radius = 4;
   let angle = Math.PI / 2;
   const c_speed = 0.005;
-  // const cc = -1
-  const controlCamera = (cc = null) => {
+  let cc = false
+  const controlCamera = () => {
     angle += c_speed * (cc ? 1 : -1);
     camera.position.x = Math.cos(angle) * radius
     camera.position.z = Math.sin(angle) * radius
@@ -294,14 +294,19 @@
   const handleOrientation = (event) => {
     if (event.gamma > 10) {
       lean.value = 1
-      angle = Math.PI
-      controlCamera()
+      // angle = Math.PI
+      // controlCamera()
+      isPen.value = true
+      cc = true
     } else if (event.gamma < -10) {
       lean.value = -1
-      angle = 0
-      controlCamera()
+      // angle = 0
+      // controlCamera()
+      isPen.value = true
+      cc = false
     } else {
       lean.value = 0
+      isPen.value = false
       angle = Math.PI / 2
       controlCamera()
     }
