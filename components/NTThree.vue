@@ -208,10 +208,16 @@
     window.addEventListener("deviceorientation", (event) => {
       if (event.gamma > 10) {
         lean.value = 1
+        angle = Math.PI
+        controlCamera()
       } else if (event.gamma < -10) {
         lean.value = -1
+        angle = 0
+        controlCamera()
       } else {
         lean.value = 0
+        angle = Math.PI / 2
+        controlCamera()
       }
     });
   }
@@ -263,11 +269,11 @@
     })
   }
   const radius = 4;
-  let angle = 0;
+  let angle = Math.PI / 2;
   const c_speed = 0.005;
-  const cc = -1
-  const controlCamera = () => {
-    angle += c_speed * cc;
+  // const cc = -1
+  const controlCamera = (cc = null) => {
+    angle += c_speed * (cc ? 1 : -1);
     camera.position.x = Math.cos(angle) * radius
     camera.position.z = Math.sin(angle) * radius
     camera.position.y = 1
