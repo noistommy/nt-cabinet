@@ -202,7 +202,7 @@
 
     setInterval(() => {
       const num = parseInt(Math.random() * 100) % gesture.length
-      if (isIdle.value) playOnceAnimation(gesture[num])
+      if (isIdle.value && !lean.value) playOnceAnimation(gesture[num])
     }, 10000);
     
   }
@@ -211,9 +211,9 @@
   watch(() => lean.value, value => {
       
       const num = parseInt(Math.random() * 100) % gesture.length
-      // console.log(value, value > 0)
+      console.log(value, value > 0)
       if (value && isIdle.value) {
-        playOnceAnimation('Walk Left', value > 0)
+        playAnimation('Walk Left', value > 0)
       } else {
         playOnceAnimation(gesture[num], false)
       }
