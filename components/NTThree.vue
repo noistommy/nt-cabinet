@@ -205,7 +205,6 @@
       if (isIdle.value) playOnceAnimation(gesture[num])
     }, 10000);
     
-    requestDeviceOrientationPermission()
   }
   onMounted(ntThree)
 
@@ -271,8 +270,9 @@
     forwardAction.value =  forwardList[nextIndex]
     a_speed = forwardAction.value === 'Running' ? 2 : forwardAction.value === 'Soft Walking' ? 0.2 : 1
   }
-
+  const permission = ref(false)
   function requestDeviceOrientationPermission() {
+    // console.log(DeviceOrientationEvent.requestPermission)
     if (
       typeof DeviceOrientationEvent !== 'undefined' &&
       typeof DeviceOrientationEvent.requestPermission === 'function'
@@ -280,6 +280,7 @@
       DeviceOrientationEvent.requestPermission()
         .then(permissionState => {
           if (permissionState === 'granted') {
+            permission.value = permissionState
             window.addEventListener('deviceorientation', handleOrientation);
           } else {
             console.error('권한이 거부되었습니다.');
@@ -316,6 +317,9 @@
   <template>
     <div id="NTThree" class="container">
       <div class="nt-canvas" ref="container"></div>
+      <div class="permiss">
+        <div class="be-tag label kbd" @click="requestDeviceOrientationPermission">Permiss {{permission}}</div>
+      </div>
       <div class="log">
         <div class="be-tag label kbd" @click="isPen = !isPen" :class="{active: isPen}">Pen</div>
         <div class="be-tag label kbd forward" @click="changeAction">
@@ -351,6 +355,13 @@
           display: block;
         }
       }
+    }
+    .permiss {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      z-index:9999;
+      padding: 5px;
     }
     .log {
       display:none;
