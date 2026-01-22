@@ -211,8 +211,10 @@
   watch(() => lean.value, value => {
       
       const num = parseInt(Math.random() * 100) % gesture.length
+      console.log(value)
       if (value && isIdle.value) {
-        // console.log(value)
+        playOnceAnimation('Walk Left', value > 0)
+      } else {
         playOnceAnimation(gesture[num], false)
       }
   })
