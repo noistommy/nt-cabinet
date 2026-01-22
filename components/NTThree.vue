@@ -211,7 +211,7 @@
   watch(() => lean.value, value => {
       
       const num = parseInt(Math.random() * 100) % gesture.length
-      console.log(value)
+      // console.log(value, value > 0)
       if (value && isIdle.value) {
         playOnceAnimation('Walk Left', value > 0)
       } else {
@@ -296,20 +296,18 @@
     }
   }
   const handleOrientation = (event) => {
-    if (event.gamma > 20) {
+    if (event.gamma > 10) {
       lean.value = 1
       // angle = Math.PI
       // controlCamera()
       // isPen.value = true
       // cc = true
-      playAnimation('Walk Left', false)
-    } else if (event.gamma < -20) {
+    } else if (event.gamma < -10) {
       lean.value = -1
       // angle = 0
       // controlCamera()
       // isPen.value = true
       // cc = false
-      playAnimation('Walk Left', true)
     } else {
       lean.value = 0
       // isPen.value = false
@@ -323,7 +321,9 @@
     <div id="NTThree" class="container">
       <div class="nt-canvas" ref="container"></div>
       <div class="permiss" v-if="!permission">
-        <div class="be-tag label kbd" @click="requestDeviceOrientationPermission">Permission</div>
+        <div class="be-tag label kbd" @click="requestDeviceOrientationPermission">
+          <i class="icon xi-catched"></i>
+        </div>
       </div>
       <div class="log">
         <div class="be-tag label kbd" @click="isPen = !isPen" :class="{active: isPen}">Pen</div>
