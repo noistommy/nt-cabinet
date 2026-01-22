@@ -158,7 +158,7 @@
         if (model.rotation.y <= Math.PI / 2) {
           model.rotation.y += 0.1
         }
-        playAnimation(forwardAction.value, scrollCount > 0)
+        playAnimation(forwardAction.value)
         
         if (model.position.x < 5) {
           model.position.x += 0.01 * a_speed
@@ -288,28 +288,31 @@
         })
         .catch(console.error);
     } else {
+      permission.value = true
       // Android 또는 구형 기기 (권한 요청 불필요)
       window.addEventListener('deviceorientation', handleOrientation);
     }
   }
   const handleOrientation = (event) => {
-    if (event.gamma > 10) {
+    if (event.gamma > 20) {
       lean.value = 1
       // angle = Math.PI
       // controlCamera()
-      isPen.value = true
-      cc = true
-    } else if (event.gamma < -10) {
+      // isPen.value = true
+      // cc = true
+      playAnimation('Walk Left', false)
+    } else if (event.gamma < -20) {
       lean.value = -1
       // angle = 0
       // controlCamera()
-      isPen.value = true
-      cc = false
+      // isPen.value = true
+      // cc = false
+      playAnimation('Walk Left', true)
     } else {
       lean.value = 0
-      isPen.value = false
-      angle = Math.PI / 2
-      controlCamera()
+      // isPen.value = false
+      // angle = Math.PI / 2
+      // controlCamera()
     }
   }
   </script>
@@ -317,8 +320,8 @@
   <template>
     <div id="NTThree" class="container">
       <div class="nt-canvas" ref="container"></div>
-      <div class="permiss">
-        <div class="be-tag label kbd" @click="requestDeviceOrientationPermission">Permiss {{permission}}</div>
+      <div class="permiss" v-if="!permission">
+        <div class="be-tag label kbd" @click="requestDeviceOrientationPermission">Permission</div>
       </div>
       <div class="log">
         <div class="be-tag label kbd" @click="isPen = !isPen" :class="{active: isPen}">Pen</div>
@@ -359,7 +362,8 @@
     .permiss {
       position: absolute;
       top: 10px;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
       z-index:9999;
       padding: 5px;
     }
