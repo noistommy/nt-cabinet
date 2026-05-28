@@ -118,10 +118,18 @@ const keyControl = (event) => {
         @blur="onBlur()"
       />
     </slot>
-    <button class="be-button icon dec" :class="{ disabled }" @click="decrease">
+    <button
+      class="be-button icon dec border"
+      :class="{ disabled }"
+      @click="decrease"
+    >
       <i class="icon" :class="decIcon"></i>
     </button>
-    <button class="be-button icon inc" :class="{ disabled }" @click="increase">
+    <button
+      class="be-button icon inc border"
+      :class="{ disabled }"
+      @click="increase"
+    >
       <i class="icon" :class="incIcon"></i>
     </button>
   </div>

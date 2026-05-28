@@ -12,8 +12,10 @@ export default defineConfig({
       // { text: 'Examples', link: '/markdown-examples' },
       { text: 'BEUI', items: [
         { text: 'Intro', link: '/beui/' },
-        { text: 'React', link: '/beui/react-beui' },
-        { text: 'Vue', link: '/beui/vue-beui' },
+        { text: '여정 1', link: '/beui/journey1' },
+        { text: '여정 2', link: '/beui/journey2' },
+        { text: '여정 3', link: '/beui/journey3' },
+        { text: '여정 4', link: '/beui/journey4' },
       ]  },
       { text: 'NT Module', items: [
         { text: 'Modal', link: '/module/modal' },
@@ -41,11 +43,13 @@ export default defineConfig({
       ],
       '/beui/': [
         {
-          text: 'Be UI 라이브러리',
+          text: 'BEUI UI Library',
           items: [
             { text: '소개', link: '/beui/' },
-            { text: 'React', link: '/beui/react-beui' },
-            { text: 'Vue', link: '/beui/vue-beui' },
+            { text: '여정의 시작 - 통합', link: '/beui/journey1' },
+            { text: '여정에 진짜 필요한것 - 정제', link: '/beui/journey2' },
+            { text: '각자 가야할 길 - 분리', link: '/beui/journey3' },
+            { text: '큰 길로 나아가기 - 확장', link: '/beui/journey4' },
           ]
         }
       ],
@@ -73,7 +77,11 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+      { icon: 'github', link: '/' }
+    ],
+    footer: {
+      message: '',
+      copyright: 'Copyright © 2016-present Noistommy'
+    }
   }
 })

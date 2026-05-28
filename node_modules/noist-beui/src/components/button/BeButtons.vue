@@ -24,11 +24,11 @@ const handleSelect = (idx) => {
 </script>
 
 <template>
-  <div class="be-buttons">
+  <div class="be-buttons" :class="[{ round }, { border }]">
     <slot>
       <template v-for="(btn, i) in buttons" :key="`btn-${i}`">
         <BeButton
-          v-bind="btn.option"
+          v-bind="typeof btn === 'string' ? { contentText: btn } : btn"
           @click="() => handleSelect(i)"
           :class="{ selected: selectedIndex === i }"
         ></BeButton>

@@ -33,7 +33,7 @@ defineProps({
   },
   round: {
     type: String,
-    default: 'l',
+    default: 'm',
   },
 })
 </script>
@@ -42,7 +42,8 @@ defineProps({
   <div
     class="be-card"
     :class="[
-      { surface, border, float, image, attached, extra },
+      { surface, border, float, attached, extra },
+      { media: image },
       `round-${round}`,
       `align-${align}`,
     ]"

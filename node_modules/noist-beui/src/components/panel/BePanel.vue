@@ -12,12 +12,12 @@ const props = defineProps({
     default: false,
   },
   toggleIcon: {
-    type: String,
+    type: Array || String,
     default: null,
   },
   iconPos: {
     type: String,
-    default: 'left',
+    default: '',
   },
   open: {
     type: Boolean,
@@ -60,8 +60,14 @@ const showPanel = () => {
   >
     <div class="panel-header" @click="showPanel">
       <div class="title">{{ title }}</div>
-      <span v-if="collapse && toggleIcon">
-        <i class="icon" :class="`${toggleIcon}`"></i>
+      <span v-if="collapse && toggleIcon" class="panel-toggle-btn">
+        <template v-if="typeof toggleIcon === 'string'">
+          <i class="icon" :class="`${toggleIcon}`" />
+        </template>
+        <template v-else>
+          <i v-if="isOpen" class="icon" :class="`${toggleIcon[1]}`" />
+          <i v-else class="icon" :class="`${toggleIcon[0]}`" />
+        </template>
       </span>
     </div>
     <div class="panel-content" :style="setHeight">

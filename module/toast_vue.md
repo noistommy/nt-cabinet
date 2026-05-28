@@ -13,6 +13,17 @@ outline: deep
 
 ---
 
+<script setup>
+  import {inject} from 'vue';
+
+  const ntToast = inject('$ntToast');
+
+
+  const setToast = (type, option = {}) => {
+    ntToast.show(type, { title: 'test', description: 'this is test toast'}, option)
+  }
+</script>
+
 # NT Toast:vue
 
 <BeTag class="green">VUE</BeTag>
@@ -26,8 +37,24 @@ Vue 프로젝트 내 plugin 설치를 통해 사용 가능하도록 제작 되�
 
 테마, 위치, 스낵바 모드 등 여러 옵션을 전역에서 설정 하여 전체 시스템에 반영 하도록 할 수 있고, 사용자가 실행할 때 마다 옵션을 변경해서 적용 할 수도 있습니다.
 
+## Example
+
+주요 옵션을 간단하게 실행해 보세요.
+<div class="be-segment border">
+  <div class="contents">
+    <div class="be-button" @click="setToast('default')">Default</div>
+    <div class="be-button success" @click="setToast('success')">type: success</div>
+    <div class="be-button round" @click="setToast('default', {round: true})">option: round</div>
+    <div class="be-button" @click="setToast('default', {useIcon: true})">
+      <i class="icon left xi-comment" />
+      option: useIcon
+    </div>
+  </div>
+</div>
+
 ## Demo
 
+모든 타입, 옵션 테스트가 가능한 공식 사이트입니다. 
 <div class="be-button badge">
   <i class="icon left xi-link" />
   NT Toast

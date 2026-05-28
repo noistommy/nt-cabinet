@@ -13,6 +13,30 @@ outline: deep
 
 ---
 
+<script setup>
+import { inject } from 'vue';
+import TestModal from '../components/TestModal.vue'; 
+
+const ntModal = inject('$ntModal');
+
+const setModal = () => {
+  ntModal.show({
+    comp: TestModal, 
+    props: {
+      title: 'Test modal',
+      pText: '확인', 
+      nText: '취소', 
+      useHeader: true, 
+      useNew: false
+    }, 
+    options: {
+      useStack: true
+    }
+  })
+}
+
+</script>
+<NtTeleport />
 # NT MODAL
 
 <BeTag class="green">VUE 3</BeTag>
@@ -28,7 +52,19 @@ outline: deep
 
 창 닫기 기능과 관련된 다양한 옵션을 지정할 수 있으며, 옵션에 따라 **배경 영역 클릭** 또는 **ESC 키 입력**으로 모달을 닫을 수 있습니다. 또한, **모달 내부에서 다른 모달을 호출하는 기능**도 지원하여 여러 개의 모달을 순차적으로 열고 닫을 수 있습니다.
 
+<!-- ## Example
+
+기본 모달 동작을 확인하세요.
+
+<div class="be-segment border">
+  <div class="contents">
+    <div class="be-button" @click="setModal">Show Modal</div>
+  </div>
+</div> -->
+
 ## Demo
+
+다양한 옵션을 확인할 수 있는 공식 페이지입니다.
 
 <div class="be-button">
   <i class="icon left xi-link" />
@@ -63,7 +99,7 @@ import { inject } from 'vue';
 const ntModal = inject('$ntModal')
 
 // show modal
-ntModal.show(
+ntModal.show({
   comp: <Component /> || 'confirm',
   props: {
     // conponent`s pros
@@ -71,7 +107,7 @@ ntModal.show(
   options: {
     // custom options
   }
-)
+})
 ```
 ```html [close]
 <span @click="$emit('close')">...</span>

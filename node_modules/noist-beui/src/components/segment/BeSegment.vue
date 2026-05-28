@@ -29,6 +29,10 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  extra: {
+    type: Boolean,
+    default: false,
+  },
 })
 const showDetail = ref(false)
 const toggleCollapse = () => {
@@ -54,6 +58,9 @@ const toggleCollapse = () => {
     </div>
     <div v-if="attached && attached.includes('footer')" class="footer">
       <slot name="footer"></slot>
+    </div>
+    <div v-if="extra" class="extra">
+      <slot name="extra"></slot>
     </div>
     <div v-if="collapse" class="toggle-detail" @click="toggleCollapse"></div>
   </div>

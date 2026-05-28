@@ -18,10 +18,14 @@ defineProps({
     type: Boolean,
     default: true,
   },
+  files: {
+    type: Boolean,
+    default: false,
+  },
 })
 </script>
 <template>
-  <div class="be-tree-list" :class="userClass">
+  <div class="be-tree-list" :class="[userClass, { files }]">
     <be-tree-node
       v-for="(node, i) in treeData"
       :key="`level-${i + 1}`"
@@ -30,6 +34,7 @@ defineProps({
       :use-check="useCheck"
       :check="false"
       :use-mark="useMark"
+      :files
     />
   </div>
 </template>

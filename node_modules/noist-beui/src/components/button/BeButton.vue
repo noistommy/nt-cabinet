@@ -38,7 +38,7 @@ defineProps({
     type: Boolean,
   },
   withIcon: {
-    type: String,
+    type: String || Array,
     default: null,
   },
   iconPos: {
@@ -58,6 +58,10 @@ defineProps({
     type: String,
     default: null,
   },
+  size: {
+    type: String,
+    default: null,
+  },
 })
 const emit = defineEmits(['onClick'])
 const onClick = (e) => {
@@ -72,6 +76,7 @@ const onClick = (e) => {
       brand,
       status,
       color,
+      size,
       { text },
       { link },
       { border },
@@ -87,15 +92,27 @@ const onClick = (e) => {
   >
     <slot>
       <template v-if="withIcon && (iconPos === 'left' || iconPos === 'both')">
-        <i class="icon" :class="[iconPos, withIcon]"></i>
+        <i
+          class="icon"
+          :class="[
+            iconPos,
+            typeof withIcon === 'string' ? withIcon : withIcon[0],
+          ]"
+        ></i>
       </template>
       <template v-if="icon">
         <i class="icon" :class="icon"></i>
       </template>
       {{ contentText }}
-      <template
-        v-if="withIcon && (iconPos === 'right' || iconPos === 'both')"
-      ></template>
+      <template v-if="withIcon && (iconPos === 'right' || iconPos === 'both')">
+        <i
+          class="icon"
+          :class="[
+            iconPos,
+            typeof withIcon === 'string' ? withIcon : withIcon[1],
+          ]"
+        ></i>
+      </template>
       <template v-if="badge">
         <div class="in-badge" :class="badgeOption">{{ badge }}</div>
       </template>

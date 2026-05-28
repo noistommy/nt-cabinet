@@ -1,4 +1,6 @@
 @use 'sass:map';
+@use '../../utils/func.scss' as *;
+
 // Red
 $red-palette: (
   50: #ffe9e7,
@@ -167,21 +169,20 @@ $gray-palette: (
   900: #3f4040,
 );
 
-// All colors collection
-// $color-palettes: (
-//   red: $red-palette,
-//   orange: $orange-palette,
-//   yellow: $yellow-palette,
-//   lightgreen: $lightgreen-palette,
-//   green: $green-palette,
-//   lightblue: $lightblue-palette,
-//   blue: $blue-palette,
-//   deepblue: $deepblue-palette,
-//   deeppurple: $deeppurple-palette,
-//   purple: $purple-palette,
-//   brown: $brown-palette,
-//   gray: $gray-palette,
-// );
+$color-palettes: (
+  red: $red-palette,
+  orange: $orange-palette,
+  yellow: $yellow-palette,
+  lightgreen: $lightgreen-palette,
+  green: $green-palette,
+  lightblue: $lightblue-palette,
+  blue: $blue-palette,
+  deepblue: $deepblue-palette,
+  deeppurple: $deeppurple-palette,
+  purple: $purple-palette,
+  brown: $brown-palette,
+  gray: $gray-palette,
+);
 
 $red-o: (
   50: #faebee,
@@ -340,22 +341,22 @@ $gray-o: (
   900: #131313,
 );
 
-$color-palettes: (
-  'red': $red-o,
-  'orange': $orange-o,
-  'yellow': $yellow-o,
-  'lightgreen': $lightgreen-o,
-  'green': $green-o,
-  'lightblue': $lightblue-o,
-  'blue': $blue-o,
-  'deepblue': $deepblue-o,
-  'deeppurple': $deeppurple-o,
-  'purple': $purple-o,
-  'brown': $brown-o,
-  'gray': $gray-o,
-);
+// $color-palettes: (
+//   'red': $red-o,
+//   'orange': $orange-o,
+//   'yellow': $yellow-o,
+//   'lightgreen': $lightgreen-o,
+//   'green': $green-o,
+//   'lightblue': $lightblue-o,
+//   'blue': $blue-o,
+//   'deepblue': $deepblue-o,
+//   'deeppurple': $deeppurple-o,
+//   'purple': $purple-o,
+//   'brown': $brown-o,
+//   'gray': $gray-o,
+// );
 // 색상 접근 함수
-@function be-color($color-name, $shade: 400) {
+@function getUserColor($color-name, $shade: 400) {
   @if map.has-key($color-palettes, $color-name) {
     $palette: map.get($color-palettes, $color-name);
     @if map.has-key($palette, $shade) {
@@ -388,6 +389,11 @@ $color-palettes: (
     @each $shade, $value in $palette {
       .bg-#{'' + $color-name}-#{$shade} {
         background-color: $value;
+        // @if color-contrast(getUserColor($color-name, $shade), #fff) < 2.5 {
+        //   color: #333;
+        // } @else {
+        //   color: #fff;
+        // }
       }
     }
 

@@ -85,7 +85,7 @@ table.be-table {
     td {
       padding: $inputPadding;
       text-align: $cellTextAlign;
-      border-bottom: $border;
+      border-top: $border;
       line-height: $inputLineHeight;
       &.label {
         background-color: $headerBackgroundColor;

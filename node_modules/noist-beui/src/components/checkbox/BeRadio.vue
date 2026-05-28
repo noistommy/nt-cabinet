@@ -21,11 +21,12 @@ const selectCheck = () => {
 
 <template>
   <div class="be-radio">
-    <div
+    <label
       v-for="item in optionList"
       :key="item"
       class="be-checkbox radio"
       :class="{ checked: item === selectedRadio }"
+      :for="`${item}-${uniqueId}`"
     >
       <input
         type="radio"
@@ -34,8 +35,8 @@ const selectCheck = () => {
         :value="item"
         @change="selectCheck"
       />
-      <label :for="`${item}-${uniqueId}`">{{ item }}</label>
-    </div>
+      {{ item }}
+    </label>
   </div>
 </template>
 

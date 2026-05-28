@@ -3,27 +3,37 @@
 layout: home
 
 hero:
-  name: "Design System, UI/UX, Components"
-  text: "Frontend Developer KIM MIN YOUNG"
-  tagline: ""
-  actions:
-    - theme: brand
-      text: Introbuce BEUI
-      link: /beui/
-    - theme: alt
-      text: React ver
-      link: /beui/react-beui
-    - theme: alt
-      text: Vue ver
-      link: /beui/vue-beui
+  name: "Scalable Frontend Architecture Engineer"
+  text: "김민영"
+  tagline: "Architecting semantic <span class='be-tag label red round'>Design systems</span> and crafting intuitive <span class='be-tag label blue round'>UI/UX</span>, built upon frontend engineering foundations."
+  #tagline: "프론트엔드 엔지니어링 기반 위에 시멘틱 디자인 시스템과 직관적인 UI/UX 컴포넌트 설계"
+  # actions:
+  #   - theme: brand
+  #     text: Introbuce BEUI
+  #   - theme: alt
+  #     text: React ver
+  #   - theme: alt
+  #     text: Vue ver
 
 features:
-  - title: BEUI 
-    details: BEUI UI Components Library.
-  - title: NT Modules
+  - icon:
+      src: /img/journey_beui.png
+      width: 100%
+    title: BEUI - UI인프라를 위한 여정
+    details: BEUI UI Components Library. 
+    link: /beui/
+  - icon:
+      src: /img/nt_modules.png
+      width: 100%
+    title: 오픈 소스 - NT Modules
     details: Modules for Vue and React.
-  - title: Other Works
+    link: /module/modal/
+  - icon:
+      src: /img/other_modules.png
+      width: 100% 
+    title: Other Works
     details: Roulette, Number-puzzle, scrollspy ...
+    link: /pages/scrollspy/
 ---
 <script setup>
   import NTThree from './components/NTThree.vue'
@@ -86,9 +96,9 @@ features:
   </span>
 </div> -->
 
-## Components
+<!-- ## Components -->
 
-<div class="card-wrapper">
+<!-- <div class="card-wrapper">
   <template v-for="item in uiList" :key="item.name">
     <BeCard image>
       <template #image>
@@ -98,11 +108,11 @@ features:
       <a class="link" href="/"></a>
     </BeCard>
   </template>
-</div>
+</div> -->
 
-## Modules
+<!-- ## Modules -->
 
-<div class="card-wrapper">
+<!-- <div class="card-wrapper">
   <template v-for="item in moduleList" :key="item.name">
     <BeCard image>
       <template #image>
@@ -112,7 +122,7 @@ features:
       <a class="link" href="/"></a>
     </BeCard>
   </template>
-</div>
+</div> -->
 
 <style lang="scss">
   :root {
@@ -150,7 +160,7 @@ features:
       flex-grow: 1;
       flex-shrink: 0;
       .image {
-        background-color: #F8F8F8;
+        background-color: var(--suf);
       }
       svg {
         color: #5178AF;

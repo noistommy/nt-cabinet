@@ -3,20 +3,20 @@
 $tabItemGap: 10px;
 $tabsLineColor: #ebebeb;
 $tabLineWidth: 2px;
+$tabsItemPadding: 4px 12px;
 
 .be-tabs {
   display: inline-block;
   position: relative;
   width: 100%;
   .tab-menu {
+    display: flex;
+    flex-wrap: wrap;
     .tab-item {
       cursor: pointer;
       display: inline-block;
-      padding: 4px 12px;
+      padding: $tabsItemPadding;
       padding-right: $tabItemGap;
-      &:hover {
-        //background-color: $surfaceHover;
-      }
       &.active {
         color: $primary;
         font-weight: 800;
@@ -26,6 +26,7 @@ $tabLineWidth: 2px;
   &.vertical {
     display: flex;
     .tab-menu {
+      flex-direction: column;
       .tab-item {
         display: block;
       }

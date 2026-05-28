@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
 const props = defineProps({
   id: [String, Number],
   trackType: {
@@ -111,29 +111,56 @@ const updatePos = (distance) => {
   }
 }
 
-const setStateOn = ({ target: control, pageX }) => {
+const touchMoveOptions = { passive: false }
+
+const getPageX = (e) => {
+  if (typeof e?.pageX === 'number') return e.pageX
+  if (e?.touches?.length) return e.touches[0].pageX
+  if (e?.changedTouches?.length) return e.changedTouches[0].pageX
+  return null
+}
+
+const setStateOn = (e) => {
+  const control = e.target
+  const pageX = getPageX(e)
+  if (pageX == null) return
+
   if (control.classList.contains('control-btn')) {
     initialX.value = pageX
     initialW.value = resultRef.value.offsetWidth
     catching.value = true
     window.addEventListener('mousemove', changeValue)
     window.addEventListener('mouseup', setStateOff)
+    window.addEventListener('touchmove', changeValue, touchMoveOptions)
+    window.addEventListener('touchend', setStateOff)
+    window.addEventListener('touchcancel', setStateOff)
   } else {
     result.value = updatePos(pageX - initialX.value)
   }
 }
 
-const setStateOff = ({ target: control, pageX }) => {
+const setStateOff = (e) => {
+  const control = e.target
+  const pageX = getPageX(e)
+
   if (control.classList.contains('control-btn')) {
-    result.value = updatePos(pageX - initialX.value)
+    if (pageX != null) {
+      result.value = updatePos(pageX - initialX.value)
+    }
   }
   resultValue.value = setResultValue.value
   catching.value = false
   window.removeEventListener('mousemove', changeValue)
   window.removeEventListener('mouseup', setStateOff)
+  window.removeEventListener('touchmove', changeValue, touchMoveOptions)
+  window.removeEventListener('touchend', setStateOff)
+  window.removeEventListener('touchcancel', setStateOff)
 }
 
-const changeValue = ({ pageX }) => {
+const changeValue = (e) => {
+  if (e?.cancelable) e.preventDefault()
+  const pageX = getPageX(e)
+  if (pageX == null) return
   result.value = updatePos(pageX - initialX.value)
 }
 
@@ -159,6 +186,14 @@ onMounted(() => {
   }
 })
 
+onBeforeUnmount(() => {
+  window.removeEventListener('mousemove', changeValue)
+  window.removeEventListener('mouseup', setStateOff)
+  window.removeEventListener('touchmove', changeValue, touchMoveOptions)
+  window.removeEventListener('touchend', setStateOff)
+  window.removeEventListener('touchcancel', setStateOff)
+})
+
 let slide_obs = new ResizeObserver((entries) => {
   for (let entry of entries) {
     const entInfo = entry.contentRect
@@ -175,6 +210,8 @@ let slide_obs = new ResizeObserver((entries) => {
     :class="[{ disabled }, trackType, { labeled: showLabel }]"
     @mousedown="setStateOn"
     @mouseup="setStateOff"
+    @touchstart="setStateOn"
+    @touchend="setStateOff"
   >
     <div
       class="result-slider primary"

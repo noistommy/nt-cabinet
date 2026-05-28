@@ -1,4 +1,4 @@
-import './beui/beui.scss'
+// import './beui/beui.scss'
 import * as components from './components'
 
 const install = (app) => {

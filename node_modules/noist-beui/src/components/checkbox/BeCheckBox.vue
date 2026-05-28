@@ -24,14 +24,12 @@ const checkedValue = defineModel()
 </script>
 
 <template>
-  <div
+  <label
+    :for="name"
     class="be-checkbox"
     :class="[type, { checked: checkedValue }, { indeter }]"
-    @click="checkedValue = !checkedValue"
   >
     <input type="checkbox" :name="name" v-model="checkedValue" />
-    <label>
-      {{ labelText }}
-    </label>
-  </div>
+    {{ labelText }}
+  </label>
 </template>

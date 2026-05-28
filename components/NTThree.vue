@@ -4,6 +4,13 @@
   import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
   
   import {ref, reactive, computed, watch, onMounted} from 'vue'
+
+  const props = defineProps({
+    type: {
+      type: String,
+      default: 'main'
+    }
+  })
   
   const isPen = ref(false)
   const isIdle = ref(true)
@@ -35,18 +42,18 @@
   }
 
   const gesture = [
-    'Pitching', 
-    'Golf Chip', 
+    // 'Pitching', 
+    // 'Golf Chip', 
     'Backflip', 
     'Clapping', 
     'Soccer Pass', 
     'Climbing Rope',
-    'Walk In Circle',
+    // 'Walk In Circle',
     // 'Spinning',
     // 'Treading Water',
     'Waving',
     'Walk Left',
-    'Entry'
+    // 'Entry'
   ]
 
   const logs = reactive({
@@ -146,8 +153,14 @@
     })
     
     const clock = new THREE.Clock()
+    let oldElapsedTime = 0
+
     const animate = () => {
-      const deltaTime = clock.getDelta()
+      // const deltaTime = clock.getDelta()
+      const elapsedTime = clock.getElapsedTime()
+      const deltaTime = elapsedTime - oldElapsedTime
+      oldElapsedTime = elapsedTime
+
       const scene_speed = 0.8
       mixer.update(deltaTime * scene_speed)
   
@@ -198,7 +211,19 @@
       const scrollEl = e.target.scrollingElement
       scrollDir = scrollCount > scrollEl.scrollTop ? -1 : 1
       scrollCount = scrollEl.scrollTop
+      if (!permission.value) requestDeviceOrientationPermission()
     })
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey) {
+        if (e.key == 'p') isPen.value = true
+        if (e.key == 'q') changeAction()
+      }
+      if (e.keyCode === 27) {
+        isPen.value = false
+        resetCamera()
+      }
+      // console.log(e)
+    } )
 
     setInterval(() => {
       const num = parseInt(Math.random() * 100) % gesture.length
@@ -265,6 +290,9 @@
     camera.position.z = Math.sin(angle) * radius
     camera.position.y = 1
   }
+  const resetCamera = () => {
+    camera.position.set(0, 1.5, 4)
+  }
   const forwardList = ['Standard Walking', 'Soft Walking', 'Happy Walking', 'Running']
   const changeAction = () => {
     let currentIndex = forwardList.findIndex(c => c === forwardAction.value)
@@ -318,13 +346,14 @@
   </script>
   
   <template>
-    <div id="NTThree" class="container">
+    <div id="NTThree" class="container" :class="type">
+      <slot name="header" />
       <div class="nt-canvas" ref="container"></div>
-      <div class="permiss" v-if="!permission">
+      <!-- <div class="permiss" v-if="!permission">
         <div class="be-tag label kbd" @click="requestDeviceOrientationPermission">
           <i class="icon xi-catched"></i>
         </div>
-      </div>
+      </div> -->
       <div class="log">
         <div class="be-tag label kbd" @click="isPen = !isPen" :class="{active: isPen}">Pen</div>
         <div class="be-tag label kbd forward" @click="changeAction">
@@ -338,12 +367,12 @@
 
   <style lang="scss" scoped>
     #NTThree {
-      position: fixed;
-      
-      top: 50px;
-      left: 50%;
-      
-      z-index: 1;
+      &.main {
+        position: fixed; 
+        top: 10dvh;
+        left: 50%;
+        z-index: 1;
+      }
       
 
       // z-index: 9999;

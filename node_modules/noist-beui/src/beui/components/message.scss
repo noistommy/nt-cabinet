@@ -7,10 +7,10 @@
   border-radius: 4px;
   background-color: var(--bgc);
   border: 1px solid var(--brd);
-  color: #999;
-  margin-bottom: 5px;
+  color: var(--txt-light);
+  margin-bottom: 4px;
   width: 100%;
-  line-height: 1.6;
+  line-height: $lineHeight;
   &:last-child {
     margin: 0;
   }

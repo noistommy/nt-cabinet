@@ -79,11 +79,17 @@ $switchRadiusSize: $baseInputRadius;
         }
       }
     }
+    &:hover {
+      .switch:before {
+        // box-shadow: 0 0 0 4px rgba(109, 157, 114, 0.3);
+        box-shadow: 0 0 0 4px color.change($primary, $alpha: 0.3);
+      }
+    }
   }
   &.button {
     position: relative;
     font-size: 0.9em;
-    background-color: #efefef;
+    background-color: var(--suf);
     padding: 2px;
     border-radius: calc($switchRadiusSize + 2px);
     //box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.16);

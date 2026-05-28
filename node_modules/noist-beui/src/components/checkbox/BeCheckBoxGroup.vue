@@ -28,11 +28,12 @@ const selectCheck = () => {
 
 <template>
   <div class="be-checkout-group">
-    <div
+    <label
       v-for="(item, i) in checkList"
       :key="item"
       class="be-checkbox"
       :class="{ checked: checkboxList[i] }"
+      :for="`${item}-${uniqueId}`"
     >
       <input
         type="checkbox"
@@ -40,8 +41,8 @@ const selectCheck = () => {
         v-model="checkboxList[i]"
         @change="selectCheck"
       />
-      <label :for="`${item}-${uniqueId}`">{{ item }}</label>
-    </div>
+      {{ item }}
+    </label>
   </div>
 </template>
 
