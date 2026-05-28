@@ -14,7 +14,7 @@ next: false
 ---
 
 <style>
-  header {display: none;}
+  /* header {display: none;} */
   .lead {max-width: 800px;}
   p.range-date {margin-top: 4px !important; font-weight: 600; color: #777;}
   .kicker {font-size:.9rem; letter-spacing:.08em; text-transform:uppercase; opacity:.7}
