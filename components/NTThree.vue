@@ -354,14 +354,13 @@
           <i class="icon xi-catched"></i>
         </div>
       </div> -->
-      <div class="log">
+      <!-- <div class="log">
         <div class="be-tag label kbd" @click="isPen = !isPen" :class="{active: isPen}">Pen</div>
         <div class="be-tag label kbd forward" @click="changeAction">
-          <!-- xi-accessibility -->
           <i class="icon" :class="forwardAction === 'Running' ? 'xi-run' : 'xi-walk'"></i> 
           {{forwardAction}}
         </div>
-      </div>
+      </div> -->
     </div>
   </template>
 

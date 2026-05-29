@@ -2,8 +2,7 @@
 layout: doc
 
 title: 여정에 진짜 필요한것 - 정제
-# titleTemplate: 
-# description: 
+description: 무겁고 복잡해진 라이브러리를 재정비하고, 리치 컴포넌트를 공용 모듈로 분리해 경량화
 lastUpdated: true
 editLink: true
 navbar: true
@@ -14,13 +13,12 @@ outline: deep
 ---
 
 <h1>{{ $frontmatter.title }}</h1>
-
-무겁고 복잡해진 라이브러리를 재정비하고, 리치 컴포넌트를 공용 모듈로 분리해 경량화.
+<p>{{ $frontmatter.description }}</p>
 
 ## 문제
 
 - 컴포넌트 통합 과정에서 중복된 많은 옵션을 다 포함하게 되어 컴포넌트가 복잡하고 무거워지게됨
-- 리치 컴포넌트, 도메인 특화 컴포넌트와 기본 UI 컴포넌트가 하나의 라이브러리에 전부 포함되어 여러 프로젝트에 적용 시 라이브러리의 이점을 얻기 어려움
+- 리치 컴포넌트, 도메인 특화 컴포넌트와 기본 UI 컴포넌트가 하나의 라이브러리에 전부 포함되어 여러 프로젝트에 적용 시 효율적인 재사용성을 확보하기 어려움
 
 ## 목표
 
@@ -51,7 +49,7 @@ outline: deep
 ## ![nt-modules](/img/nt-profile.svg){width=22} NT-Modules
 - Modal, Toast, Tooltip 등의 Plugin 모듈로 각각 패키징을 함
 
-<div class="be-grid divide-4 divide-sm-2 divide-xs-1">
+<div class="be-grid divide-3 divide-sm-2 divide-xs-1">
   <div class="column">
     <a href="/module/modal/">
       <BeSegment round="s" surface>
@@ -90,6 +88,10 @@ outline: deep
   </div>
 
 </div>
+
+## 결과
+- 신규 프로젝트에 필요한 최소 컴포넌트를 빠르게 가져다 쓸 수 있고, 리치 기능은 필요에 따라 선택적 적용이 가능한 구조로 전환됨
+- 하나의 라이브러리보다 별도로 분리된 모듈이 스타일 자유도와 기능 확장에 더 유리한 부분 됨
 
 <script setup>
   const keyword = ['css', 'scss', 'gulp::build', 'components', 'vue3', 'plugins']

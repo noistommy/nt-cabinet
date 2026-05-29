@@ -10,13 +10,7 @@ export default defineConfig({
     nav: [
       { text: 'Resume', link: '/resume' },
       // { text: 'Examples', link: '/markdown-examples' },
-      { text: 'BEUI', items: [
-        { text: 'Intro', link: '/beui/' },
-        { text: '여정 1', link: '/beui/journey1' },
-        { text: '여정 2', link: '/beui/journey2' },
-        { text: '여정 3', link: '/beui/journey3' },
-        { text: '여정 4', link: '/beui/journey4' },
-      ]  },
+      { text: 'Journey for BEUI', link: '/beui/'  },
       { text: 'NT Module', items: [
         { text: 'Modal', link: '/module/modal' },
         { text: 'Toast (Vue)', link: '/module/toast_vue' },
@@ -43,13 +37,13 @@ export default defineConfig({
       ],
       '/beui/': [
         {
-          text: 'BEUI UI Library',
+          text: 'BEUI를 위한 여정',
           items: [
             { text: '소개', link: '/beui/' },
-            { text: '여정의 시작 - 통합', link: '/beui/journey1' },
-            { text: '여정에 진짜 필요한것 - 정제', link: '/beui/journey2' },
-            { text: '각자 가야할 길 - 분리', link: '/beui/journey3' },
-            { text: '큰 길로 나아가기 - 확장', link: '/beui/journey4' },
+            { text: '1. 여정의 시작 - 통합', link: '/beui/journey1' },
+            { text: '2. 여정에 진짜 필요한것 - 정제', link: '/beui/journey2' },
+            { text: '3. 각자 가야할 길 - 분리', link: '/beui/journey3' },
+            { text: '4. 큰 길로 나아가기 - 확장', link: '/beui/journey4' },
           ]
         }
       ],
@@ -76,12 +70,12 @@ export default defineConfig({
       ]
     },
 
-    socialLinks: [
-      { icon: 'github', link: '/' }
-    ],
+    // socialLinks: [
+    //   { icon: 'github', link: '/' }
+    // ],
     footer: {
       message: '',
-      copyright: 'Copyright © 2016-present Noistommy'
+      copyright: 'Copyright © 2016-present Kim Minyoung a.k.a noistommy'
     }
   }
 })

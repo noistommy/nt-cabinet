@@ -40,12 +40,30 @@ Vue 프로젝트 내 plugin 설치를 통해 사용 가능하도록 제작 되�
 ## Example
 
 주요 옵션을 간단하게 실행해 보세요.
-<div class="be-segment border">
+
+### 기본
+
+<div class="be-segment surface">
   <div class="contents">
-    <div class="be-button" @click="setToast('default')">Default</div>
-    <div class="be-button success" @click="setToast('success')">type: success</div>
-    <div class="be-button round" @click="setToast('default', {round: true})">option: round</div>
-    <div class="be-button" @click="setToast('default', {useIcon: true})">
+    <div class="be-button outline small" @click="setToast('default')">Default</div>
+  </div>
+</div>
+
+### Status
+
+<div class="be-segment surface">
+  <div class="contents">
+    <div class="be-button success small" @click="setToast('success')">Success</div>
+    <div class="be-button info small" @click="setToast('info')">Info</div>
+    <div class="be-button danger small" @click="setToast('danger')">Danger</div>
+  </div>
+</div>
+
+### Use Icon
+
+<div class="be-segment surface">
+  <div class="contents">
+    <div class="be-button outline small" @click="setToast('default', {useIcon: true})">
       <i class="icon left xi-comment" />
       option: useIcon
     </div>
