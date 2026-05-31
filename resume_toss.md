@@ -20,7 +20,7 @@ next: false
   .kicker {font-size:.9rem; letter-spacing:.08em; text-transform:uppercase; opacity:.7}
   @media(min-width:900px){ .grid.cols-2{grid-template-columns:1fr 1fr;} }
   .muted {opacity:.75}
-  a {color: var(--info) !important;}
+  /* a {color: var(--info) !important;} */
 </style>
 
 # 김민영
