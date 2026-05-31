@@ -30,6 +30,24 @@
   
   let scrollCount = 0
   let scrollDir = 1
+  // get scroll speed
+  let scrollSpeed = 0
+  let lastScrollTop = 0
+  let lastScrollTime = 0
+
+  const getScrollSpeed = (scrollTop, now) => {
+    if (!lastScrollTime) {
+      lastScrollTop = scrollTop
+      lastScrollTime = now
+      return 0
+    }
+    const deltaScroll = scrollTop - lastScrollTop
+    const deltaTime = now - lastScrollTime
+    lastScrollTop = scrollTop
+    lastScrollTime = now
+    return deltaTime > 0 ? deltaScroll / deltaTime : 0  // px/ms
+  }
+
   const speeds = {
     'Walking': 1,
     'Agree': 1,
@@ -211,6 +229,14 @@
       const scrollEl = e.target.scrollingElement
       scrollDir = scrollCount > scrollEl.scrollTop ? -1 : 1
       scrollCount = scrollEl.scrollTop
+      // scrollSpeed = Math.abs(getScrollSpeed(scrollEl.scrollTop, performance.now()))
+      // if (scrollSpeed * 1000 < 100) {
+      //   changeAction(1)
+      // } else if (scrollSpeed * 1000 > 500) {
+      //   changeAction(3)
+      // } else {
+      //   changeAction()
+      // }
       if (!permission.value) requestDeviceOrientationPermission()
     })
     document.addEventListener('keydown', (e) => {
@@ -224,7 +250,7 @@
       }
       // console.log(e)
     } )
-
+    
     setInterval(() => {
       const num = parseInt(Math.random() * 100) % gesture.length
       if (isIdle.value && !lean.value) playOnceAnimation(gesture[num])
@@ -294,10 +320,15 @@
     camera.position.set(0, 1.5, 4)
   }
   const forwardList = ['Standard Walking', 'Soft Walking', 'Happy Walking', 'Running']
-  const changeAction = () => {
-    let currentIndex = forwardList.findIndex(c => c === forwardAction.value)
-    let nextIndex = currentIndex + 1 === forwardList.length ? 0 : currentIndex + 1
-    forwardAction.value =  forwardList[nextIndex]
+  const changeAction = (forward = null) => {
+    if (forwardAction.value === forwardList[forward]) return
+    if (forward) {
+      forwardAction.value =  forwardList[forward]
+    } else {
+      let currentIndex = forwardList.findIndex(c => c === forwardAction.value)
+      let nextIndex = currentIndex + 1 === forwardList.length ? 0 : currentIndex + 1
+      forwardAction.value =  forwardList[nextIndex]
+    }
     a_speed = forwardAction.value === 'Running' ? 2 : forwardAction.value === 'Soft Walking' ? 0.2 : 1
   }
   const permission = ref(false)

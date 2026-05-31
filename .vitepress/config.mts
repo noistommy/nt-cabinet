@@ -5,7 +5,7 @@ export default defineConfig({
   description: "A VitePress Site",
   head: [['link', { rel: 'icon', href: '/logo_tom.png' }]],
   themeConfig: {
-    siteTitle: false, // or false
+    siteTitle: 'Kim Minyoung', // or false
     logo: { src: '/logo_tom.png', alt: 'logo' },
     nav: [
       { text: 'Resume', link: '/resume' },
@@ -44,6 +44,7 @@ export default defineConfig({
             { text: '2. 여정에 진짜 필요한것 - 정제', link: '/beui/journey2' },
             { text: '3. 각자 가야할 길 - 분리', link: '/beui/journey3' },
             { text: '4. 큰 길로 나아가기 - 확장', link: '/beui/journey4' },
+            { text: '새로운 여정 - AI', link: '/beui/journey5' },
           ]
         }
       ],

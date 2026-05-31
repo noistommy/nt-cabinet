@@ -20,19 +20,19 @@ features:
       src: /img/journey_beui.png
       width: 100%
     title: BEUI - UI인프라를 위한 여정
-    details: BEUI UI Components Library. 
+    details:   
     link: /beui/
   - icon:
       src: /img/nt_modules.png
       width: 100%
     title: 오픈 소스 - NT Modules
-    details: Modules for Vue and React.
+    details:
     link: /module/modal/
   - icon:
       src: /img/other_modules.png
       width: 100% 
     title: Other Works
-    details: Roulette, Number-puzzle, scrollspy ...
+    details: 
     link: /pages/scrollspy/
 ---
 <script setup>
