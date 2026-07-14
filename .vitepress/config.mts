@@ -12,7 +12,8 @@ export default defineConfig({
       // { text: 'Examples', link: '/markdown-examples' },
       { text: 'Journey for BEUI', link: '/beui/'  },
       { text: 'NT Module', items: [
-        { text: 'Modal', link: '/module/modal' },
+        { text: 'Modal (Vue)', link: '/module/modal' },
+        { text: 'Modal (React)', link: '/module/modal_react' },
         { text: 'Toast (Vue)', link: '/module/toast_vue' },
         { text: 'Toast (React)', link: '/module/toast_react' },
         { text: 'Tooltip', link: '/module/tooltip' },
@@ -52,7 +53,8 @@ export default defineConfig({
         {
           text: 'NT Module',
           items: [
-            { text: 'Modal', link: '/module/modal' },
+            { text: 'Modal(vue)', link: '/module/modal' },
+            { text: 'Modal(react)', link: '/module/modal_react' },
             { text: 'Toast(vue)', link: '/module/toast_vue' },
             { text: 'Toast(react)', link: '/module/toast_react' },
             { text: 'Tooltip', link: '/module/tooltip' },

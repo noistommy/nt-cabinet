@@ -2,6 +2,7 @@
   <teleport to="body">
     <template v-if="isModals">
       <div class="nt-modals">
+        <!-- <div class="nt-modal-dimmed"></div> -->
         <template v-for="modal in modalRef" :key="modal.id">
           <template v-if="modal.comp === 'confirm'">
             <nt-confirm v-bind="modal" />
@@ -49,7 +50,7 @@ export default {
     emitter.on('show-modal', modalRef => {
       modalRef.id = this.modalIndex
       modalRef.options = { ...this.options, ...modalRef.options }
-      console.log(modalRef.options)
+      // console.log(modalRef.options)
       if (modalRef.options.useStack) {
         this.modalRef.push(modalRef)
         this.modalIndex++

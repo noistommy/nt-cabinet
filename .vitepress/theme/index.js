@@ -1,7 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import BEUI from  'noist-beui'
 // import 'noist-beui/beui.css'
-import './beui.css'
+import './index.css'
 
 import NtToast from 'vue-nt-toast';
 import 'vue-nt-toast/toast.css';

@@ -1,5 +1,5 @@
 <template>
-  <div class="nt-modal" :style="{ '--offset': `${(id % 5) * 20}px` }">
+  <div class="nt-confirm" :style="{ '--offset': `${(id % 5) * 20}px` }">
     <div class="nt-modal-background" />
     <div class="nt-modal-container">
       <div class="modal confirm">

@@ -11,7 +11,7 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
-    "vue-nt-modal": "^0.2.4",
+    "vue-nt-modal": "^0.2.5",
     "vue-nt-toast": "^0.3.4",
     "vue-nt-tooltip": "^0.2.3"
   }

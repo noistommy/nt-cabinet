@@ -52,7 +52,7 @@ const setModal = () => {
 
 창 닫기 기능과 관련된 다양한 옵션을 지정할 수 있으며, 옵션에 따라 **배경 영역 클릭** 또는 **ESC 키 입력**으로 모달을 닫을 수 있습니다. 또한, **모달 내부에서 다른 모달을 호출하는 기능**도 지원하여 여러 개의 모달을 순차적으로 열고 닫을 수 있습니다.
 
-<!-- ## Example
+## Example
 
 기본 모달 동작을 확인하세요.
 
@@ -60,7 +60,7 @@ const setModal = () => {
   <div class="contents">
     <div class="be-button" @click="setModal">Show Modal</div>
   </div>
-</div> -->
+</div>
 
 ## Demo
 

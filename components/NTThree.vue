@@ -325,6 +325,7 @@
     if (forward) {
       forwardAction.value =  forwardList[forward]
     } else {
+
       let currentIndex = forwardList.findIndex(c => c === forwardAction.value)
       let nextIndex = currentIndex + 1 === forwardList.length ? 0 : currentIndex + 1
       forwardAction.value =  forwardList[nextIndex]
