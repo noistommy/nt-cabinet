@@ -13,7 +13,7 @@ prev: false
 next: false
 ---
 
-<script>
+<script setup>
   import {onMounted} from 'vue'
 
   onMounted(() => (document?.documentElement.classList.add('light', 'no-head')))
