@@ -218,17 +218,16 @@ next: false
 <div class="be flex between">
   <div class="gray-txt-40">2021 - 2025</div>
   
-  <div class="be-tags shrink-0">
-    <div class="be-tag label">vue-nt-modal </div>
-    <div class="be-tag label">vue-nt-toast </div>
-    <div class="be-tag label">vue-nt-tooltip </div>
+  <div class="be-tags">
+    <a href="https://noistommy.github.io/vue-nt-modal" target="_blank" class="be-tag label">vue-nt-modal </a>
+    <a href="https://noistommy.github.io/vue-nt-modal" target="_blank" class="be-tag label">vue-nt-modal </a>
   </div>
 </div>
 
 - npm 설치 가능한 공용 모듈
 - *Eventbus*, *Teleport*를 활용한 modal, toast, tooltip 모듈
 - npm 누적 다운로드(최근 1년): modal(903회), toast(917회), tooltip(1067회)
-   
+- [github(modal)](https://github.com/noistommy/vue-nt-modal.git), [github(toast)](https://github.com/noistommy/vue-nt-toast.git), [github(tooltip)](https://github.com/noistommy/vue-nt-tooltip.git)
 
 ##### 모듈 (react)
 
@@ -236,14 +235,15 @@ next: false
   <div class="gray-txt-40">2026</div>
   
   <div class="be-tags shrink-0">
-    <div class="be-tag label">react-nt-modal </div>
-    <div class="be-tag label">react-nt-toast </div>
+    <a href="https://noistommy.github.io/react-nt-modal" target="_blank" class="be-tag label">react-nt-modal </a>
+   <a href="https://noistommy.github.io/react-nt-modal" target="_blank" class="be-tag label">react-nt-toast </a>
   </div>
 </div>
 
 - npm 설치 가능한 공용 모듈
 - *Provider*, *Potal*를 활용한 modal, toast 모듈
 - npm 누적 다운로드(최근 1년): modal(1671회), toast(534회)
+- [github(modal)](https://github.com/noistommy/react-nt-modal.git), [github(toast)](https://github.com/noistommy/react-nt-toast.git)
    
 </div>
 
