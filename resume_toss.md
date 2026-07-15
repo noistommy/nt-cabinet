@@ -14,7 +14,10 @@ next: false
 ---
 
 <script>
-  document.documentElement.classList.add('light', 'no-head')
+  import {onMounted} from 'vue'
+
+  onMounted(() => (document?.documentElement.classList.add('light', 'no-head')))
+  
 </script>
 
 <style>
