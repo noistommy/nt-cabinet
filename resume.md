@@ -3,8 +3,8 @@ layout: doc
 
 sidebar: false
 title: "김민영 — 프론트엔드"
-description: ""
-tags: ["Frontend", "Design System", "Data Visualization", "Vue", "Nuxt"]
+description: "효율을 셜계하는 프론트엔드 개발자"
+tags: ["Frontend", "Design system", "Data Visualization", "Vue", "React", "Nuxt"]
 
 # aside: false
 outline: false
@@ -13,11 +13,17 @@ prev: false
 next: false
 ---
 
+<script setup>
+  import {onMounted} from 'vue'
+
+  onMounted(() => (document?.documentElement.classList.add('light')))
+  
+</script>
+
 <style>
-  .lead {max-width: 800px;}
+  .no-head header {display: none;}
   p.range-date {margin-top: 4px !important; font-weight: 600; color: #777;}
   .kicker {font-size:.9rem; letter-spacing:.08em; text-transform:uppercase; opacity:.7}
-  @media(min-width:900px){ .grid.cols-2{grid-template-columns:1fr 1fr;} }
   .muted {opacity:.75}
 </style>
 
@@ -36,19 +42,8 @@ next: false
 ---
 
 <div className="lead">
-10년차 프론트엔드 개발자 김민영입니다.
 
-다양한 프로젝트 경험으로 프론트엔드의 전반적인 업무를 폭넓게 수행해 왔습니다. 빠르게 변화하는 프론트엔드 기술의 특성과 목적을 명확히 이해하고, 상황에 맞는 효율적인 개발 방식을 적용하는데 중점을 두고 있습니다.
-
-기획부터 배포까지 전체 프로세스를 직접 경험하며 프로젝트 흐름을 빠르게 파악하고 그 과정에서 다양한 협업 파트너들과 적극적으로 의사소통을 하며 쌓은 협업 경험을 통해 문제 해결 능력과 실무 역량을 높여왔습니다.
-
-효율적인 프론트엔드 구조 설계와 UI/UX를 업무의 중요한 부분으로 두고 여러 프로젝트에서 디자인 시스템과 공용 컴포넌트 라이브러리를 개발하여 생산성을 높인 경험이 있고 공용 모듈 및 유틸리티 개발은 서비스 전반의 재사용성과 확장성을 높여 유지보수 및 관리의 비용을 줄이는데 도움이 되도록 작업하고 있습니다.
-
-또한 데이터 시각화의 방식으로 SVG, canvas등 다양한 인터렉션을 적극 활용하고 있으며 최근에는 3D를 이용한 인터렉션에도 크게 관심을 갖고 개발하고 있습니다.
-
-최근 AI를 이용한 데이터 시각화 작업의 경험과 AI를 활용한 개발 등 AI 관련 기술을 활용하여 그동안의 쌓아온 역량과 결합하는 시도들을 계속해서 하고 있습니다. 
-
-감사합니다.
+다양한 프로젝트를 경험하며 시스템 설계와 디자인 시스템, 공용 컴포넌트들이 프로젝트의 생산성과 확장성을 높이는 중요한 요소라는 걸 체감했습니다. 이를 바탕으로 여러 서비스에서 초기 프로젝트 구조를 설계하고, 디자인 시스템과 공용 라이브러리, 모듈들을 직접 만들어 배포하며 팀의 개발 생산성을 높여왔습니다. 데이터 시각화 영역에서는 SVG나 Canvas를 코드 레벨에서 직접 개발하여 복잡하고 디테일한 인터랙션을 구현하고, 라이브러리에 의존하지 않고도 완성도 높은 콘텐츠를 만들어 왔습니다. 최근에는 그동안 Vue 중심으로 쌓아온 실무 경험을 React 기반으로 확장하며 구현하고 있습니다. 또한 기존 개발된 모듈에 AI를 활용한 사용성을 높이는 연동 문서화(llms.txt, AGENT.md) 작업들도 시도하고 있습니다. 
 
 </div>
 
@@ -57,105 +52,230 @@ next: false
 ### (주) 포그리트 <span class="be-gray-text light">| Frontend Developer</span>
 <p class="range-date">2023.12 – 2025.05 (1Y 6M)</p>
 
-###### Analytics 데이터 시각화
+>**사용자 UX 데이터를 기반한 분석 데이터 시각화 구현 및 서비스 고도화를 담당**
 
-- **오래된 빌드 환경 개선** 을 통해 모듈, 프레임워크 성능을 향상 시켰습니다. (Vite, Vue3로 업데이트 정책 반영)
-- 신규 프로젝트의 초기 화면 구조를 설계하고 **디자인시스템 + UI 컴포넌트** 도입으로 개발 및 유지보수 관리 포인트를 줄였습니다.
-(UI 컴포넌트 라이브러리: [`BEUI`](https://beui.vercel.app))
-- SVG를 이용한 **다중 인터렉션을 직접 구현**하여, 요구기능에 대한 UX 및 상호작용의 디테일을 쉽게 제어할 수 있도록 했습니다.
-- **대량 동적 데이터의 시각화 처리를 개선**하여 리랜더링 성능을 개선했습니다. (스크립트 처리량을 줄이고 데이터 변화에 반응한 리랜더로 전환) 
-- 다국어 폰트 로드 시 발생하던 **FOUT 현상 문제를 해결**하고 리소스 최적화했습니다.
-- Nuxt.js 환경에서 **다국어 SEO 문제를 개선**하여 링크 공유 시 표시되는 다국어 컨텐츠 제어할 수 있도록 했습니다.
-- **AI 데이터 시각화**의 여러 방식을 테스트 하여 HTML 템플릿에 바인딩 가능한 컨텍스트를 만드는 작업에 기여했습니다.
----
+<div class="py-10">
+
+##### SVG 기반 인터랙티브 컴포넌트 구현
+
+- **문제**: 기존의 방식(Lottie, SVGator)으로는 복잡한 인터랙션과 사실적인 움직임 구현이 불가능함.
+- **해결**: SVG를 코드 레벨에서 직접 구현하여 상호작용에 따른 동적 애니메이션 처리와 가속도 조정, requestAnimationFrame을 통한 사실적인 움직임을 구현함.
+- **결과**: 서비스의 메인 컨텐츠로서 프로젝트 완료에 기여하고 팀내 긍정적 평가를 받음.  
+
+
+##### 시스템 폰트의 문제 개선 및 최적화
+
+- **문제**: 시스템 폰트 사용과 다언어 지원으로 인해 발생하는 화면 깜박임(FOIT, FOUT) 문제로 서비스 신뢰도가 저하하고 언어별 별도 스타일 처리로 인한 개발 생산성 저하 문제 발생함.  
+- **해결**: 서브셋 폰트와 다언어 지원이 가능한 'Pretendard Variable'폰트를 지정, 'preload' 방식 적용으로 최적화하여 화면 깜박임을 최대한 줄이고 추가적으로 일관된 폰트를 사용하여 스타일 일관성을 확보할 수 있게함.
+- **결과**: 전사 서비스에 적용되어 서비스 신뢰도를 높이고 폰트별 스타일을 통일해 디자인 비용 소모를 줄임.
+
+
+##### 재사용 공용 모듈 개발
+
+- **문제**: 서비스에 공통적으로 사용되는 Tooltip, Modal 기능이 각 서비스에서 개별적으로 사용되면서 코드 일관성, 유지보수의 어려움이 발생함.
+- **해결**: 컴포넌트를 재사용이 가능한 외부 모듈로 만들어서 관리하고 각 서비스로 임포트 하도록 설계하여 유지보수 비용을 줄이고 일관된 스타일 및 기능을 제공하도록 함.
+- **결과**: 재사용 모듈 사용으로 기존 프로젝트의 유지보수와 신규 프로젝트의 기능 추가 비용을 줄이는 효과. (기존 프로젝트 2개, 신규 프로젝트 2개)
+
+<div class="be-button compact small mb-5">
+  Modal 모듈 문서
+  <i class="icon right xi-link" />
+  <a class="link" href="https://noistommy.github.io/vue-nt-modal" target="_blank" />
+</div><br />
+<div class="be-button compact small">
+  Tooltip 모듈 문서
+  <i class="icon right xi-link" />
+  <a class="link" href="https://noistommy.github.io/vue-nt-tooltip" target="_blank" />
+</div>
+
+</div>
+
 
 ### (주) 가비아 <span class="be-gray-text light">| Frontend Developer</span>
 <p class="range-date">2019.11 – 2023.02 (3Y 4M)</p>
 
-###### Design system & UI/UX Components
-- 디자인 토큰을 이용한 CSS 프레임워크 설계 ([`Frog UI`](https://frog-ui-css.vercel.app))
-- scss 프레임워크 + Headless UI 라이브러리 형식을 위해 스타일을 분리하여 다양한 프론트 환경에서 독립적으로 사용 가능하도록 설계했습니다.
-- 테마별 토큰을 기반으로 서로 다른 테마의 정적 파일(.css)로 빌드해, 여러 서비스별 스타일을 생성할 수 있도록 설계하였습니다.
+>**신규 서비스 프레임워크 시스템 설계 및 개발과 공용 컴포넌트 라이브러리 개발 담당**
 
-###### Frontend - Cloud Admin part
-- 신규 프로젝트의 초기 화면 설계, 전용 UI 라이브러리 개발였습니다.
-( 전용 UI 라이브러리: [`GAUI`](https://noistommy.github.io/nt-ui) )
+<div class="py-10">
 
-###### Hiworks Group platform Team (TF)
-- Vue 프레임워크 기술 개선의 역할로 참여하여 지연되던 프로젝트를 정상화 하고, 팀의 Vue 기술 정책 수립에 기여했습니다.
-- 개별 UI 컴포넌트를 통합하여 전용 라이브러리를 구축하고 기존 외부 라이브러리 제거 하여 커스텀, 유지보수 비용을 줄이는 데 기여했습니다.
-- 전용 UI 라이브러리 가이드 사이트를 작성,공유하여 다른 부서와의 원활한 의사소통을 원활하게 했습니다.
-( 가이드 사이트 : [`HWUI`](https://noistommy.github.io/hw_ui))
-- 기존의 리치 모듈을 대신하여 불필요한 기능을 제거한 경량화 모듈을 개발했습니다.
-([`Modal`](https://noistommy.github.io/vue-nt-modal), [`Toast`](https://noistommy.github.io/vue-nt-toast), [`Tooltip`](https://noistommy.github.io/vue-nt-tooltip), Text Editor, DatePicker 등..)
+##### 하이웍스 그룹웨어 신규 서비스 개발
 
-###### Font Branding site Dev (TF)
+- **문제**: 프레임워크(vue) 도입 초기의 기술 부재로 상태관리 방식, SPA 구조 설계, 폴더 구성들에 문제가 많아 개발 일정이 지연됨. 
+- **해결**: TF팀에 참여 하여 기존 설계 및 코드의 50%를 재 구현하는 방식으로 문제를 개선하고 개발을 완료.
+- **결과**: 1년간 지연된 프로젝트를 마무리 할 수 있었고 전사 프레임워크 기술 정책에 기준을 마련하고 이후 2개의 서비스 개발에 활용함.
 
-- SVG 스크롤 에니메이션 기반 인터렉션 구현
-- 인터랙션 설계에 참여해 실제 구현 테스트를 반복하며 과도한 스펙의 인터랙션을 적용 가능한 형태로 조율했고, 최종 결과물에 대해 좋은 평가를 받아 이후 팀 내 인터랙션 작업에 참고 사례로 활용되었습니다.
+##### 디자인 시스템 기반 UI 컴포넌트 개발
 
----
+- **문제**: 서비스 마다 생성된 UI 컴포넌드와 외부 컴포넌트 라이브러리로 인해 일관되지 않은 스타일과 중복 컴포넌트등의 문제가 발생함.
+- **해결**: 
+  1. 자체 컴포넌트를 구현하여 외부 컴포넌트를 대체하고 중복된 컴포넌트들을 하나로 통합하여 자체 라이브러리를 생성. (36개 컴포넌트)
+  2. 디자인 토큰을 정의하여 디자인 시스템을 만들고 컴포넌트의 스타일을 분리해서 빌드를 통해 정적파일(.css)로 컴파일함
+  3. 디자인, 기획 팀과의 소통을 위한 문서 사이트를 개발 및 운영.
+- **결과**: 자체 라이브러리를 적용하여 초기 설계 기간 50% 단축. 유료 라이브러리(CKEDITOR)를 대체 하여 생산 비용 감소.
+
+<div class="be-button compact small mb-10">
+  하이웍스 공용 UI 라이브러리 문서
+  <i class="icon right xi-link" />
+  <a class="link" href="https://noistommy.github.io/hw_ui/#/" target="_blank" />
+</div>
+
+##### 폰트 다운로드 사이트 구현
+
+- **문제**: 기존의 개발 방식이 아닌 스크롤 인터렉티브 방식의 사이트 구현 요청.
+- **해결**: 디자인, 기획과의 적극적인 소통과 테스트 시연등을 통해 최선의 방식으로 개발을 완료함.
+- **결과**: 팀내에서 결과와 방식에 대해 좋은 평가를 받았고 현재까지 변경 없이 동일 기능으로 서비스중임.
+
+<div class="be-button compact small">
+  가비아 폰트 다운로드 사이트
+  <i class="icon right xi-link" />
+  <a class="link" href="https://font.gabia.com/" target="_blank" />
+</div>
+
+</div>
+
 
 ### 엔쓰리엔(주) <span class="be-gray-text light">| Frontend Developer</span>
 <p class="range-date">2017.10 – 2019.11 (2Y 1M)</p>
 
-###### 관제 솔루션 내 통계데이터 시각화
+>**관제 솔루션 내부 데이터를 활용한 SI 개발**
 
-- 클라이언트별 다양한 데이터를 상황에 맞도록 직접 기획과 UI 설계를 통해 구현했습니다.
-- 다양한 요구사항에 맞춘 차트 컴포넌트를 직접 개발하여 재사용성을 높이고 유지보수가 쉽도록 개선했습니다.
+<div class="py-10">
 
-###### 재난 대응 관리 SOP 솔루션
+##### 관제 솔루션 내부 데이터 시각화
 
-- 솔루션 내부 기능을 독립된 솔루션으로 확장할 수 있도록 기여했습니다.
-- 기획, 개발, UI/UX 설계 전 과정 참여하여 직접 클라이언트와 소통하는 과정을 통해 UI/UX 설계 경험을 폭넓게 쌓았습니다.
+주 프로젝트와 별개의 신규 SI 개발을 전담하여 고객사별 다양한 데이터를 상황에 맞도록 직접 기획, UI 설계를 주도적으로 함. 다양한 요구사항에 맞도록 재사용 가능한 차트 컴포넌트를 개발하여 개발 및 유지보수 생산성을 향상. 
+
+
+##### 재난 대응 관리 솔루션
+
+솔루션의 내부 기능으로 개발 이후 독립된 솔루션으로 확장 되도록 기여함. 기획, 개발, UI/UX 설계 전 과정 참여하여 직접 고객사와 소통하는 과정을 통해 UI/UX 설계 경험 향상
+
+</div>
+
 
 ### SNMP(소셜 네트워크 마케팅 플랫폼) <span class="be-gray-text light">| Frontend Developer</span>
 <p class="range-date">2014.08 – 2016.10 (2Y 2M)</p>
 
-###### 모바일 기반 오픈마켓 플랫폼
+<div class="py-10">
 
-- 오픈마켓 웹 및 관리자 플랫폼, 브랜드 페이지 개발
-- 마케팅 페이지 개발
+##### 모바일 기반 오픈마켓 플랫폼
 
-## 오픈 소스
+- 오픈마켓 웹 및 관리자 플랫폼, 브랜드 마케팅 사이트 개발
 
-###### vue-nt-modal ([`npm`](https://www.npmjs.com/package/vue-nt-modal), [`git`](https://github.com/noistommy/vue-nt-modal.git))
+</div>
 
-- Demo: [https://noistommy.github.io/vue-nt-modal](https://noistommy.github.io/vue-nt-modal)
-- Teleport를 이용한 Vue.js 전용 Modal 플러그인
 
-###### vue-nt-toast ([`npm`](https://www.npmjs.com/package/vue-nt-toast), [`git`](https://github.com/noistommy/vue-nt-toast.git))
+## 프로젝트 & 링크
 
-- Demo: [https://noistommy.github.io/vue-nt-toast](https://noistommy.github.io/vue-nt-toast) 
-- Vue.js 전용 Toast 플러그인
-- 다중 알림, 자동 삭제, 스넥바 모드 등 제공
+<div class="py-10">
 
-###### react-nt-toast ([`npm`](https://www.npmjs.com/package/react-nt-toast), [`git`](https://github.com/noistommy/react-nt-toast.git))
+##### Frog UI 디자인 시스템
 
-- Demo: [https://noistommy.github.io/react-nt-toast](https://noistommy.github.io/react-nt-toast)
-- React 전용 Toast 플러그인
-- 다중 알림, 자동 삭제, 스넥바 모드 등 제공
+<div class="be flex between">
+  <div class="gray-txt-40">2021 - 현재</div>
+  
+  <div class="be-tags attached">
+    <a href="https://frog-ui-css.vercel.app" target="_blank" class="be-tag label">Frog UI 문서</a>
+  </div>
+</div>
 
-###### vue-nt-tooltip ([`npm`](https://www.npmjs.com/package/vue-nt-tooltip), [`git`](https://github.com/noistommy/vue-nt-tooltip.git))
+- 디자인 토큰을 활용한 scss기반 시멘틱 디자인 시스템
+- 22개 컴포넌트 스타일, 다크모드 지원
+- 빌드를 통해 정적 파일 생성
+- 배포중인 모든 데모 문서에 적용
+- [github](https://github.com/noistommy/frog-ui-css.git)
 
-- Demo: [https://noistommy.github.io/vue-nt-tooltip](https://noistommy.github.io/vue-nt-tooltip)
-- Vue.js 전용 Tooltip 디렉티브
-- Top, Bottom, Left, Right 방향 표출
-- directive로 구현되어 간단하게 적용 가능
+##### UI 컴포넌트 라이브러리
 
-## 기술
+<div class="be flex between">
+  <div class="gray-txt-40">2021 - 현재</div>
+  
+  <div class="be-tags">
+    <a href="https://beui.vercel.app" target="_blank" class="be-tag label">BEUI(vue) 문서 </a>
+    <a href="https://react-be-ui.vercel.app" target="_blank" class="be-tag label">BEUI(react) 문서 </a>
+  </div>
+</div>
 
-<p class="large bold">Vue3, Vue2, react, Nuxt.js, Typescript, javascript(ES6+), HTML5, CSS, SCSS(dart), Vite, webpack, gulp, git, SVG, canvas, chart</p>
+- npm 설치 가능한 Headless UI 라이브러리
+- React, Vue 개별 라이브러리
+- 약 24개 컴포넌트 제공
+- npm 누적 다운로드(최근 1년): vue용(2128회), react용(2025회)
+- [github(vue)](https://github.com/noistommy/beui.git), [github(react)](https://github.com/noistommy/react-be-ui.git)
 
+
+##### 모듈 (vue)
+
+<div class="be flex between">
+  <div class="gray-txt-40">2021 - 2025</div>
+  
+  <div class="be-tags">
+    <a href="https://noistommy.github.io/vue-nt-modal" target="_blank" class="be-tag label">Modal 문서</a>
+    <a href="https://noistommy.github.io/vue-nt-toast" target="_blank" class="be-tag label">Toast 문서</a>
+    <a href="https://noistommy.github.io/vue-nt-tooltip" target="_blank" class="be-tag label">Tooltip 문서</a>
+  </div>
+</div>
+
+- npm 설치 가능한 공용 모듈
+- *Eventbus*, *Teleport*를 활용한 modal, toast, tooltip 모듈
+- npm 누적 다운로드(최근 1년): modal(903회), toast(917회), tooltip(1067회)
+- [github(modal)](https://github.com/noistommy/vue-nt-modal.git), [github(toast)](https://github.com/noistommy/vue-nt-toast.git), [github(tooltip)](https://github.com/noistommy/vue-nt-tooltip.git)
+
+##### 모듈 (react)
+
+<div class="be flex between">
+  <div class="gray-txt-40">2026</div>
+  
+  <div class="be-tags shrink-0">
+    <a href="https://noistommy.github.io/react-nt-modal" target="_blank" class="be-tag label">Modal 문서</a>
+   <a href="https://noistommy.github.io/react-nt-toast" target="_blank" class="be-tag label">Toast 문서</a>
+  </div>
+</div>
+
+- npm 설치 가능한 공용 모듈
+- *Provider*, *Potal*를 활용한 modal, toast 모듈
+- npm 누적 다운로드(최근 1년): modal(1671회), toast(534회)
+- [github(modal)](https://github.com/noistommy/react-nt-modal.git), [github(toast)](https://github.com/noistommy/react-nt-toast.git)
+   
+</div>
+
+
+## Tech Stack
+
+- Language: TypeScript, JavaScript(ES6+)
+- Framework: Vue 2/3, Nuxt.js, React, Next.js
+- Build & Tooling: Vite, Webpack, Gulp
+- UI & Design System: 자체 UI 라이브러리(FROG UI, BEUI, HWUI) 제작, Headless UI 패턴 설계
+- Visualization & Graphics: SVG, Canvas, Charting 라이브러리, 인터랙션, 애니메이션(Transition)
+- Infra & 기타: Git(github, gitlab), jira, slack, AI 연동 문서화(llms.txt, AGENT.md) 
 
 ## 학력
 
 - **국립공주대학교** — 컴퓨터·멀티미디어공학 전공 (2008.02 졸업)
 
 
-## 개인 프로젝트
 
-[`Nt-Cabinet`](https://nt-cabinet.notion.site/NT-Play-Room-1f133071ca604d9ebed0394665dc39aa)  
-- 자체 제작 UI 컴포넌트 라이브러리 (BEUI, BEUI(React), GAUI, HWUI, FROG-UI)
-- 플러그인 NPM 모듈 3
-- 기타 프로젝트 (Puzzle game, Roulette)
+<style lang="scss" scoped>
+  a {
+    color: var(--gray-80);
+    cursor: pointer;
+  }
+  .be-button {
+    margin: 0;
+    margin-bottom: 4px;
+    &:hover {
+      a::before {
+        content: attr(href);
+        width: max-content;
+        position: absolute;
+        padding: 4px;
+        margin-left: 4px;
+        border-radius: 4px;
+        font-size: 0.8em;
+        left: 100%;
+        top: 50%;
+        background-color: var(--suf);
+        color: var(--txt);
+        transform: translateY(-50%);
+      }
+    }
+  }
+</style>
