@@ -1,5 +1,9 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
+import {onMounted} from 'vue'
+
+onMounted(() => (document?.documentElement.classList.add('light')))
+
 
 const { Layout } = DefaultTheme
 

@@ -87,11 +87,12 @@
 
   
   const ntThree = () => {
-    const scene = new THREE.Scene()
-  
     if (!container.value) return
+    
+    const scene = new THREE.Scene()
     containerW = container.value.clientWidth
     containerH = container.value.clientHeight
+
     const ratio = containerW / containerH || 1
     const frustumSize = 1.1
     const p_camera = new THREE.PerspectiveCamera(35, ratio, 0.1, 100)

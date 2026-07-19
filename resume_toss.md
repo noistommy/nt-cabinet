@@ -22,12 +22,9 @@ next: false
 
 <style>
   .no-head header {display: none;}
-  .lead {max-width: 800px;}
   p.range-date {margin-top: 4px !important; font-weight: 600; color: #777;}
   .kicker {font-size:.9rem; letter-spacing:.08em; text-transform:uppercase; opacity:.7}
-  @media(min-width:900px){ .grid.cols-2{grid-template-columns:1fr 1fr;} }
   .muted {opacity:.75}
-  /* a {color: var(--info) !important;} */
 </style>
 
 # 김민영
@@ -46,18 +43,7 @@ next: false
 
 <div className="lead">
 
-효율을 설계하는 프론트엔드 개발자 김민영입니다.
-
-프론트엔드 시스템 설계와 UI/UX 설계를 개발 효율성을 중요한 부분으로 생각하고 여러 서비스에서 디자인 시스템과 공용 라이브러리를 개발하고 생산성을 높인 경험이 있습니다.
-직접 공용 모듈 및 유틸리티 기능 개발을 하여 서비스 전반의 재사용성과 확장성을 높여 유지보수 및 관리의 비용을 줄이는데 도움이 되도록 작업하고 있습니다.
-
-그동안 프론트엔드의 전반적인 업무를 폭넓게 수행해 왔고 특히 데이터 시각화 분야에서 SVG, canvas등 다양한 인터랙션을 적극 활용하고 있으며 최근에는 3D를 이용한 인터랙션에도 크게 관심을 갖고 개발하고 있습니다.
-
-최근 AI를 이용한 데이터 시각화 작업의 경험과 AI를 활용한 개발 등 AI 관련 기술을 활용하여 그동안의 쌓아온 역량과 결합하는 시도들을 계속해서 하고 있습니다. 
-
-<!-- 신규 서비스의 초기 아키텍처 설계부터 디자인 시스템·공용 라이브러리 구축까지, 프론트엔드 구조를 처음부터 설계해본 경험이 많은 개발자입니다. SVG,Canvas 기반 데이터 시각화와 재사용 가능한 컴포넌트 설계를 주력으로, 최근에는 AI 도구를 개발 워크플로우에 결합하는 시도를 이어가고 있습니다. -->
-
- 프레임워크 시스템 설계와 디자인 시스템의 도입으로 개발 생산성 향상을 경험했습니다. 팀과 서비스 전반에 재사용성과 확장성을 높이는 설계 기준을 마련하고 개발자 경험을 담아 직접 디자인 시스템과 공용 컴포넌트들을 개발하고 배포 하고 있습니다. 
+다양한 프로젝트를 경험하며 시스템 설계와 디자인 시스템, 공용 컴포넌트들이 프로젝트의 생산성과 확장성을 높이는 중요한 요소라는 걸 체감했습니다. 이를 바탕으로 여러 서비스에서 초기 프로젝트 구조를 설계하고, 디자인 시스템과 공용 라이브러리, 모듈들을 직접 만들어 배포하며 팀의 개발 생산성을 높여왔습니다. 데이터 시각화 영역에서는 SVG나 Canvas를 코드 레벨에서 직접 개발하여 복잡하고 디테일한 인터랙션을 구현하고, 라이브러리에 의존하지 않고도 완성도 높은 콘텐츠를 만들어 왔습니다. 최근에는 그동안 Vue 중심으로 쌓아온 실무 경험을 React 기반으로 확장하며 구현하고 있습니다. 또한 기존 개발된 모듈에 AI를 활용한 사용성을 높이는 연동 문서화(llms.txt, AGENT.md) 작업들도 시도하고 있습니다. 
 
 </div>
 
@@ -70,18 +56,18 @@ next: false
 
 <div class="py-10">
 
-##### SVG 기반 인터렉티브 컴포넌트 구현
+##### SVG 기반 인터랙티브 컴포넌트 구현
 
 - **문제**: 기존의 방식(Lottie, SVGator)으로는 복잡한 인터랙션과 사실적인 움직임 구현이 불가능함.
-- **해결**: SVG를 코드 레벨에서 직접 구현하여 상호작용에 따른 동적 애니메이션 처리와 가속도 조정과 requestAnimationFrame을 통한 사실적인 움직임을 구현함.
+- **해결**: SVG를 코드 레벨에서 직접 구현하여 상호작용에 따른 동적 애니메이션 처리와 가속도 조정, requestAnimationFrame을 통한 사실적인 움직임을 구현함.
 - **결과**: 서비스의 메인 컨텐츠로서 프로젝트 완료에 기여하고 팀내 긍정적 평가를 받음.  
 
 
 ##### 시스템 폰트의 문제 개선 및 최적화
 
-- **문제**: 사용중인 시스템 폰트 사용과 국제화 지원으로 인해 화면 깜박임(FOIT, FOUT) 문제 발생.
-- **해결**: 서브셋 폰트와 국제화 지원이 가능한 'Pretendard Variable'폰트를 'preload' 방식으로 최적화하여 FOIT, FOUT를 최대한 줄이고 추가적으로 일관된 폰트 사용으로 인한 스타일 일관성을 확보할 수 있게됨.
-- **결과**: 전사 서비스에 적용되어 서비스 신뢰도를 높이고 국제화 폰트별 스타일을 통일해 디자인 비용 소모를 줄임.
+- **문제**: 시스템 폰트 사용과 다언어 지원으로 인해 발생하는 화면 깜박임(FOIT, FOUT) 문제로 서비스 신뢰도가 저하하고 언어별 별도 스타일 처리로 인한 개발 생산성 저하 문제 발생함.  
+- **해결**: 서브셋 폰트와 다언어 지원이 가능한 'Pretendard Variable'폰트를 지정, 'preload' 방식 적용으로 최적화하여 화면 깜박임을 최대한 줄이고 추가적으로 일관된 폰트를 사용하여 스타일 일관성을 확보할 수 있게함.
+- **결과**: 전사 서비스에 적용되어 서비스 신뢰도를 높이고 폰트별 스타일을 통일해 디자인 비용 소모를 줄임.
 
 
 ##### 재사용 공용 모듈 개발
@@ -113,8 +99,8 @@ next: false
 
 ##### 하이웍스 그룹웨어 신규 서비스 개발
 
-- **문제**: 프레임워크(vue)로 전환 초기 기술 부재로 상태관리 방식, SPA 구조 설계, 폴더 구성들에 문제가 많아 일정이 지연됨. 
-- **해결**: TF팀에 참여 하여 기존 설계 및 코드의 50%를 재 구현하며 문제를 개선하여 개발을 완료.
+- **문제**: 프레임워크(vue) 도입 초기의 기술 부재로 상태관리 방식, SPA 구조 설계, 폴더 구성들에 문제가 많아 개발 일정이 지연됨. 
+- **해결**: TF팀에 참여 하여 기존 설계 및 코드의 50%를 재 구현하는 방식으로 문제를 개선하고 개발을 완료.
 - **결과**: 1년간 지연된 프로젝트를 마무리 할 수 있었고 전사 프레임워크 기술 정책에 기준을 마련하고 이후 2개의 서비스 개발에 활용함.
 
 ##### 디자인 시스템 기반 UI 컴포넌트 개발
@@ -173,8 +159,7 @@ next: false
 
 ##### 모바일 기반 오픈마켓 플랫폼
 
-- 오픈마켓 웹 및 관리자 플랫폼, 브랜드 페이지 개발
-- 마케팅 페이지 개발
+- 오픈마켓 웹 및 관리자 플랫폼, 브랜드 마케팅 사이트 개발
 
 </div>
 
@@ -189,14 +174,15 @@ next: false
   <div class="gray-txt-40">2021 - 현재</div>
   
   <div class="be-tags attached">
-    <a href="https://frog-ui-css.vercel.app" target="_blank" class="be-tag label">Frog UI</a>
+    <a href="https://frog-ui-css.vercel.app" target="_blank" class="be-tag label">Frog UI 문서</a>
   </div>
 </div>
 
 - 디자인 토큰을 활용한 scss기반 시멘틱 디자인 시스템
 - 22개 컴포넌트 스타일, 다크모드 지원
 - 빌드를 통해 정적 파일 생성
-- [github](https://github.com/noistommy/frog-ui-css.git) 
+- 배포중인 모든 데모 문서에 적용
+- [github](https://github.com/noistommy/frog-ui-css.git)
 
 ##### UI 컴포넌트 라이브러리
 
@@ -204,8 +190,8 @@ next: false
   <div class="gray-txt-40">2021 - 현재</div>
   
   <div class="be-tags">
-    <a href="https://beui.vercel.app" target="_blank" class="be-tag label">BEUI vue </a>
-    <a href="https://react-be-ui.vercel.app" target="_blank" class="be-tag label">BEUI react </a>
+    <a href="https://beui.vercel.app" target="_blank" class="be-tag label">BEUI(vue) 문서 </a>
+    <a href="https://react-be-ui.vercel.app" target="_blank" class="be-tag label">BEUI(react) 문서 </a>
   </div>
 </div>
 
@@ -222,8 +208,9 @@ next: false
   <div class="gray-txt-40">2021 - 2025</div>
   
   <div class="be-tags">
-    <a href="https://noistommy.github.io/vue-nt-modal" target="_blank" class="be-tag label">vue-nt-modal </a>
-    <a href="https://noistommy.github.io/vue-nt-modal" target="_blank" class="be-tag label">vue-nt-modal </a>
+    <a href="https://noistommy.github.io/vue-nt-modal" target="_blank" class="be-tag label">Modal 문서</a>
+    <a href="https://noistommy.github.io/vue-nt-toast" target="_blank" class="be-tag label">Toast 문서</a>
+    <a href="https://noistommy.github.io/vue-nt-tooltip" target="_blank" class="be-tag label">Tooltip 문서</a>
   </div>
 </div>
 
@@ -238,8 +225,8 @@ next: false
   <div class="gray-txt-40">2026</div>
   
   <div class="be-tags shrink-0">
-    <a href="https://noistommy.github.io/react-nt-modal" target="_blank" class="be-tag label">react-nt-modal </a>
-   <a href="https://noistommy.github.io/react-nt-modal" target="_blank" class="be-tag label">react-nt-toast </a>
+    <a href="https://noistommy.github.io/react-nt-modal" target="_blank" class="be-tag label">Modal 문서</a>
+   <a href="https://noistommy.github.io/react-nt-toast" target="_blank" class="be-tag label">Toast 문서</a>
   </div>
 </div>
 
@@ -258,7 +245,7 @@ next: false
 - Build & Tooling: Vite, Webpack, Gulp
 - UI & Design System: 자체 UI 라이브러리(FROG UI, BEUI, HWUI) 제작, Headless UI 패턴 설계
 - Visualization & Graphics: SVG, Canvas, Charting 라이브러리, 인터랙션, 애니메이션(Transition)
-- Infra & 기타: Git(github, gitlab), jira, slack 등 
+- Infra & 기타: Git(github, gitlab), jira, slack, AI 연동 문서화(llms.txt, AGENT.md) 
 
 ## 학력
 
