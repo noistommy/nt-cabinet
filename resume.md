@@ -226,14 +226,15 @@ next: false
   
   <div class="be-tags shrink-0">
     <a href="https://noistommy.github.io/react-nt-modal" target="_blank" class="be-tag label">Modal 문서</a>
-   <a href="https://noistommy.github.io/react-nt-toast" target="_blank" class="be-tag label">Toast 문서</a>
+    <a href="https://noistommy.github.io/react-nt-toast" target="_blank" class="be-tag label">Toast 문서</a>
+    <a href="https://noistommy.github.io/react-nt-tooltip" target="_blank" class="be-tag label">Tooltip 문서</a>
   </div>
 </div>
 
 - npm 설치 가능한 공용 모듈
 - *Provider*, *Potal*를 활용한 modal, toast 모듈
 - npm 누적 다운로드(최근 1년): modal(1671회), toast(534회)
-- [github(modal)](https://github.com/noistommy/react-nt-modal.git), [github(toast)](https://github.com/noistommy/react-nt-toast.git)
+- [github(modal)](https://github.com/noistommy/react-nt-modal.git), [github(toast)](https://github.com/noistommy/react-nt-toast.git), [github(tooltip)](https://github.com/noistommy/react-nt-tooltip.git)
    
 </div>
 

@@ -13,7 +13,7 @@ outline: deep
 
 ---
 
-# NT Tooltip
+# NT Tooltip (Vue)
 
 <BeTag class="green">VUE 3</BeTag>
 <BeTag class="lightgreen">Directive</BeTag>

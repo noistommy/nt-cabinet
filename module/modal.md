@@ -37,7 +37,7 @@ const setModal = () => {
 
 </script>
 <NtTeleport />
-# NT MODAL
+# NT Modal
 
 <BeTag class="green">VUE 3</BeTag>
 <BeTag class="red">NPM</BeTag>

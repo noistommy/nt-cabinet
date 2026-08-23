@@ -24,7 +24,7 @@ outline: deep
   }
 </script>
 
-# NT Toast:vue
+# NT Toast (Vue)
 
 <BeTag class="green">VUE</BeTag>
 <BeTag class="red">NPM</BeTag>

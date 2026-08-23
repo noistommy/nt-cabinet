@@ -13,7 +13,7 @@ outline: deep
 
 ---
 
-# NT Toast:react
+# NT Toast (React)
 
 <BeTag class="deepblue">React</BeTag>
 <BeTag class="red">NPM</BeTag>

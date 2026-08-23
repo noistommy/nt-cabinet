@@ -13,7 +13,7 @@ outline: deep
 
 ---
 
-# NT MODAL (React)
+# NT Modal (React)
 
 <BeTag class="deepblue">React</BeTag>
 <BeTag class="red">NPM</BeTag>

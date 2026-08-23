@@ -16,7 +16,8 @@ export default defineConfig({
         { text: 'Modal (React)', link: '/module/modal_react' },
         { text: 'Toast (Vue)', link: '/module/toast_vue' },
         { text: 'Toast (React)', link: '/module/toast_react' },
-        { text: 'Tooltip', link: '/module/tooltip' },
+        { text: 'Tooltip (Vue)', link: '/module/tooltip' },
+        { text: 'Tooltip (React)', link: '/module/tooltip_react' },
       ] },
       { text: 'Works', items: [
         // { text: 'Test Page', link: '/pages/test-page' },
@@ -57,7 +58,8 @@ export default defineConfig({
             { text: 'Modal(react)', link: '/module/modal_react' },
             { text: 'Toast(vue)', link: '/module/toast_vue' },
             { text: 'Toast(react)', link: '/module/toast_react' },
-            { text: 'Tooltip', link: '/module/tooltip' },
+            { text: 'Tooltip(vue)', link: '/module/tooltip' },
+            { text: 'Tooltip(react)', link: '/module/tooltip_react' },
           ]
         }
       ],

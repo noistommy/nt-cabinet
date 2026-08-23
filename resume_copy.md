@@ -42,10 +42,12 @@ next: false
 
 ---
 
-> **복잡한 문제를 단순하게 풀어내고, 사용자와 팀을 위한 인터페이스를 만듭니다.**
 
 <div className="lead">
-안녕하세요. 10년차 프론트엔드 개발자 김민영입니다.
+
+> 복잡한 문제를 단순하게 풀어내고, 사용자와 팀을 위한 인터페이스를 만듭니다.
+
+10년차 프론트엔드 개발자 김민영입니다.
 
 다양한 프로젝트 경험으로 프론트엔드의 전반적인 업무를 폭넓게 수행해 왔습니다. 빠르게 변화하는 프론트엔드 기술의 특성과 목적을 명확히 이해하고, 상황에 맞는 효율적인 개발 방식을 적용하는데 중점을 두고 있습니다.
 
@@ -61,59 +63,12 @@ next: false
 
 ## 기술
 
-<div class="be-grid divide-2 divide-xm-1">
-  <div class="column">
-    <div class="segment border round-l">
-      <div class="contents">
-        <div class="title">Frontend</div>
-        <span class="be-tag label gray round">React</span>
-        <span class="be-tag label gray round">Vue</span>
-        <span class="be-tag label gray round">Nuxt</span>
-        <span class="be-tag label gray round">TypeScript</span>
-        <span class="be-tag label gray round">JavaScript (ES6+)</span>
-        <span class="be-tag label gray round">HTML5</span>
-        <span class="be-tag label gray round">SCSS</span>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div class="segment border round-l">
-      <div class="contents">
-        <div class="title">Design System & DX</div>
-        <span class="be-tag label gray round">Design Tokens</span>
-        <span class="be-tag label gray round">UI Components</span>
-        <span class="be-tag label gray round">Vite/Webpack</span>
-        <span class="be-tag label gray round">Gulp</span>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div class="segment border round-l">
-      <div class="contents">
-        <div class="title">Data Visualization</div>
-        <span class="be-tag label gray  round">Charts</span>
-        <span class="be-tag label gray  round">SVG</span>
-        <span class="be-tag label gray  round">SVG Animation</span>
-        <span class="be-tag label gray  round">Canvas</span>
-        <span class="be-tag label gray  round">Three.js</span>
-        <span class="be-tag label gray  round">CSS Transition</span>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div class="segment border round-l">
-      <div class="contents">
-        <div class="title">Collaboration</div>
-        <span class="be-tag label gray  round">Figma</span>
-        <span class="be-tag label gray  round">Adobe XD</span>
-        <span class="be-tag label gray  round">Jira</span>
-        <span class="be-tag label gray  round">Git</span>
-        <span class="be-tag label gray  round">Github</span>
-        <span class="be-tag label gray  round">Gitlab</span>
-      </div>
-    </div>
-  </div>
-</div>
+- Language: TypeScript, JavaScript(ES6+)
+- Framework: Vue 2/3, Nuxt.js, React, Next.js
+- Build & Tooling: Vite, Webpack, Gulp
+- UI & Design System: 자체 UI 라이브러리(FROG UI, BEUI, HWUI) 제작, Headless UI 패턴 설계
+- Visualization & Graphics: SVG, Canvas, Charting 라이브러리, 인터랙션, 애니메이션(Transition)
+- Infra & 기타: Git(github, gitlab), jira, slack, AI 연동 문서화(llms.txt, AGENT.md) 
 
 
 
