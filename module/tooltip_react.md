@@ -29,6 +29,9 @@ outline: deep
 
 모든 옵션 및 살행 테스트 가능한 공식 페이지입니다. 
 
+
+![docs_preview](../public/img/tooltip_preview.png)
+
 <div class="be-button" v-nt-tooltip="`Tooltip test`">
   <i class="icon left xi-link" />
   NT Tooptip
