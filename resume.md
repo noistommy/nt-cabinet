@@ -21,7 +21,7 @@ next: false
 </script>
 
 <style>
-  .no-head header {display: none;}
+  /* .no-head header {display: none;} */
   p.range-date {margin-top: 4px !important; font-weight: 600; color: #777;}
   .kicker {font-size:.9rem; letter-spacing:.08em; text-transform:uppercase; opacity:.7}
   .muted {opacity:.75}
