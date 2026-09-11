@@ -1,6 +1,7 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
 import {onMounted} from 'vue'
+import { Analytics } from "@vercel/analytics/vue"
 
 onMounted(() => (document?.documentElement.classList.add('light')))
 
@@ -45,4 +46,5 @@ const { Layout } = DefaultTheme
       doc-bottom
     </template> -->
   </Layout>
+  <Analytics />
 </template>

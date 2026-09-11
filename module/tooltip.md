@@ -13,111 +13,141 @@ outline: deep
 
 ---
 
-# NT Tooltip (Vue)
+# NT Tooltip
 
-<BeTag class="green">VUE 3</BeTag>
-<BeTag class="lightgreen">Directive</BeTag>
+<BeTag class="yellow">Javascript</BeTag>
+<BeTag class="deepblue">+React</BeTag>
 <BeTag class="red">NPM</BeTag>
 
 ## 소개
-`vue-nt-tooltip`은 vue의 사용자 정의 지시문(directive)이다.
 
- directive를 이용하여 제작된 툴팁은 vue template 작성 시 엘리먼트의 디렉티브 속성으로 표현 가능하여 톨팁이 적용된 엘리먼트를 직관적으로 확인 가능합니다. 간단한 텍스트만 전달하여 표시 가능하며 좀 더 복잡한 표현을 하기위해 html을 사용 하여 많은 정보를 전달할수 있습니다. 사용자가 표시 위치를 top, bottom, left, right으로 지정 할수있으며 지정된 위치에서 start, center, end로 부모 엘리먼트 기준으로 정렬 할수있습니다.
+  `nt-tooltip`은 Javascript로 만든 툴팁 모듈입니다. 커스텀 HTML 속성명(`nt-tooltip`)을 통해 툴팁과 옵션을 적용하며, HTML 작성 시 툴팁이 적용된 대상 엘리먼트를 직관적으로 확인할 수 있습니다. 간단한 텍스트는 속성 값으로 지정할 수 있고, 복잡한 HTML 콘텐츠는 `nt-target` 속성을 가진 자식 엘리먼트로 전달 가능합니다. 툴팁의 표시 방향은 `top`, `bottom`, `left`, `right` 등의 옵션으로 지정할 수 있습니다. (정확히 top-center, top-start, top-end, bottom-center 와 같이 방향-정렬 값으로 표시합니다.) 방향 지정 외 `theme`, `trigger`, `offset`, `size`, `maxWidth`, `padding` 등의 옵션도 지정 할 수 있습니다.
   
-  기본적으로 최상단 레이어( root(#app) 외부에 생성)에서 동작하여 다른 엘리먼트보다 높은 z-index 값을 갖게 되며 viewport에 의한 충돌을 보정하여 항상 컨텐츠가 화면상에 보이도록 합니다.
+  `nt-tooltip` is a tooltip module written in JavaScript. Tooltips and options are applied via a custom HTML attribute (`nt-tooltip`), so you can intuitively see which elements have tooltips when writing HTML. Simple text can be set as the attribute value, and more complex HTML content can be passed through a child element with the `nt-target` attribute. The tooltip placement can be set with options such as `top`, `bottom`, `left`, and `right`. (More precisely, it uses direction-alignment values such as `top-center`, `top-start`, `top-end`, and `bottom-center`.) In addition to placement, you can also set options such as `theme`, `trigger`, `offset`, `size`, `maxWidth`, and `padding`.
 
-## Example
-
-각 방향별 툴팁 표시 예제입니다. 
-
-<div class="be-segment border">
-  <div class="contents">
-    <div class="be-button" v-nt-tooltip="`Tooltip Top`">up</div>
-    <div class="be-button" v-nt-tooltip:bottom="`Tooltip Bottom`">bottom</div>
-    <div class="be-button" v-nt-tooltip:left="`Tooltip Left`">left</div>
-    <div class="be-button" v-nt-tooltip:right="`Tooltip Right`">right</div>
-  </div>
-</div>
 
 ## Demo
 
-모든 옵션 및 살행 테스트 가능한 공식 페이지입니다. 
+모든 옵션 및 실행 테스트가 가능한 공식 페이지입니다. 
+
+
+![docs_preview](../public/img/tooltip_preview.png)
 
 <div class="be-button" v-nt-tooltip="`Tooltip test`">
   <i class="icon left xi-link" />
   NT Tooptip
-  <a class="link" href="https://noistommy.github.io/vue-nt-tooltip" target="_blank" />
+  <a class="link" href="https://noistommy.github.io/nt-tooltip" target="_blank" />
 </div>
 Demo page
 
-## Install
+## Installation
+
+#### NPM
 
 ```bash 
-$ npm install vue-nt-tooltip
+npm install @noistommy/nt-tooltip
 ```
+
+#### CDN
+
+```html 
+<!-- unpkg -->
+<script src="https://unpkg.com/@noistommy/nt-tooltip"></script>
+<!-- jsdelivr -->
+<script src="https://cdn.jsdelivr.net/npm/@noistommy/nt-tooltip"></script>
+```
+
 
 ## How to use
 
+#### Registration
+
 ::: code-group
-```js [Registration]
-// main.js
+```tsx [React(es)]
+// app.tsx
+import React, { useEffect } from 'react';
 // import Module & style
-import NtTooltip from 'vue-nt-tooltip;
-import 'vue-nt-tooltip/tooltip.css';
+import {initTooltip, clearTooltip } from '@noistommy/nt-tooltip';
+import '@noistommy/nt-tooltip/nt-tooltip.css';
 
-const defaultOptions = {
-  trigger: 'hover',
-  maxWidth: 200,
-  size: 'normal',
-  theme: 'dark',
-  direction: 'top',
-  alignment: 'center',
-  transition: 'line',
-  isUse: true
-};
-
-// global install 
-app.use(NtTooltip, defaultOptions);
+function App() {
+  useEffect(() => {
+    initTooltip();
+    return () => {
+      clearTooltip();
+    }
+  }, []);
+  ...
+}
 ```
+``` javascript [cjs]
+
+const ntTooltip = require('@noistommy/nt-tooltip');
+require('@noistommy/nt-tooltip/nt-tooltip.css');
+
+// after mounted Dom
+ntTooltip.initTooltip()
+
+```
+``` javascript [umd]
+
+// loaded nt-tooltip.umd.js file from CDN(unpkg, jsdelivr)
+
+document.addEventListener('DOMContentLoaded', () => {
+  NtTooltip.initTooltip()
+})
+
+```
+
+:::
+
+#### Example
+
 ```html [example]
-<!-- basic --> 
-<div v-nt-tooltip="`tooltip sample`"> ... </div>
+<!-- basic -->
+<div nt-tooltip="content: tooltip content;">...</div>
 
-<!-- object type contents -->
-<div v-nt-tooltip="{ contents: 'tooltip sample'}"> ... </div>
+<!-- content type -->
+<div nt-tooltip="true">
+  <div nt-target="true">Tooltip content</div>
+</div>
 
-<!-- html contents --> 
-<div v-nt-tooltip="{ contents: '<span> html contents </span>'}"> ... </div>
-
-<!-- position -->
-<div v-nt-tooltip:top="{ contents: 'create up'}"> ... </div>
-<div v-nt-tooltip:bottom="{ contents: 'create down'}"> ... </div>
+<!-- setting options -->
+<div
+  nt-tooltip="content: tooltip content; pos: 'right-top'; invert: false; ..."
+>
+  ...
+</div>
 ```
+
 
 ## Props 
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| maxWidth | *number* | `200` | Setting the max width size(px) of tooltip. |
-| direction | *string* | `top` | Setting the initial position of tooltip. |
-| alignment | *string* | `center` | Setting the initial position of tooltip arrow. |
+| content | *string* | `''` | Setting content text of tooltip. |
+| selector | *string* | `nt-tooltip` | Setting selector attribute name. |
+| pos | *string* | `top-center` | Setting position-aligns of tooltip. |
+| invert | *boolean* | `true` | Setting theme of tooltip. |
+| trigger | *string* | `hover` | Setting trigger event type. `hover \| click` |
+| size | *string* | `''` | Setting size of tooltip. `small \| null` |
+| padding | *number* | `8` | Setting padding of tooltip. |
+| maxWidth | *number* | `250` | Setting the max width size(px) of tooltip. |
+| textAlign | *string* | `center` | Setting alignment of tooltip content. |
+| offset | *number* | `10` | Setting distance offset between tooltip and target Element. |
+| customClass | *string* | `''` | Setting user custom classname. |
+| zIndex | *string* | `''` | Setting zIndex Tooltip. |
+
 
 ## 링크
 
 <div class="be-button">
   <i class="icon left xi-github" />
   Github
-  <a class="link" href="https://github.com/noistommy/vue-nt-tooltip.git" target="_blank" />
+  <a class="link" href="https://github.com/noistommy/nt-tooltip.git" target="_blank" />
 </div>
 <div class="be-button">
   <i class="icon left xi-package" />
   npm
-  <a class="link" href=" https://www.npmjs.com/package/vue-nt-tooltip" target="_blank" />
+  <a class="link" href=" https://www.npmjs.com/package/@noistommy/nt-tooltip" target="_blank" />
 </div>
-
-<!-- ## 키워드
-
-<BeTag class="green round">VUE</BeTag>
-<BeTag class="deepblue">beTag</BeTag> -->
-
-

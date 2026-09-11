@@ -5,19 +5,22 @@ export default defineConfig({
   description: "A VitePress Site",
   head: [['link', { rel: 'icon', href: '/logo_tom.png' }]],
   themeConfig: {
-    siteTitle: 'Kim Minyoung', // or false
+    siteTitle: false, // or false
     logo: { src: '/logo_tom.png', alt: 'logo' },
     nav: [
       { text: 'Resume', link: '/resume' },
-      // { text: 'Examples', link: '/markdown-examples' },
       { text: 'Journey for BEUI', link: '/beui/'  },
       { text: 'NT Module', items: [
-        { text: 'Modal (Vue)', link: '/module/modal' },
-        { text: 'Modal (React)', link: '/module/modal_react' },
-        { text: 'Toast (Vue)', link: '/module/toast_vue' },
-        { text: 'Toast (React)', link: '/module/toast_react' },
-        { text: 'Tooltip (Vue)', link: '/module/tooltip' },
-        { text: 'Tooltip (React)', link: '/module/tooltip_react' },
+        { text: 'React', items: [
+          { text: 'Modal', link: '/module/modal_react' },
+          { text: 'Toast', link: '/module/toast_react' },
+          { text: 'Tooltip', link: '/module/tooltip' },
+        ]},
+        { text: 'Vue', items: [
+          { text: 'Modal', link: '/module/modal' },
+          { text: 'Toast', link: '/module/toast_vue' },
+          { text: 'Tooltip', link: '/module/tooltip_vue' },
+        ]},
       ] },
       { text: 'Works', items: [
         // { text: 'Test Page', link: '/pages/test-page' },
@@ -54,12 +57,16 @@ export default defineConfig({
         {
           text: 'NT Module',
           items: [
-            { text: 'Modal(vue)', link: '/module/modal' },
-            { text: 'Modal(react)', link: '/module/modal_react' },
-            { text: 'Toast(vue)', link: '/module/toast_vue' },
-            { text: 'Toast(react)', link: '/module/toast_react' },
-            { text: 'Tooltip(vue)', link: '/module/tooltip' },
-            { text: 'Tooltip(react)', link: '/module/tooltip_react' },
+            { text: 'React', items: [
+              { text: 'Modal', link: '/module/modal_react' },
+              { text: 'Toast', link: '/module/toast_react' },
+              { text: 'Tooltip', link: '/module/tooltip' },
+            ] },
+            { text: 'Vue', items: [
+              { text: 'Toast', link: '/module/toast_vue' },
+              { text: 'Modal', link: '/module/modal' },
+              { text: 'Tooltip', link: '/module/tooltip_vue' },
+            ] },
           ]
         }
       ],
@@ -72,7 +79,16 @@ export default defineConfig({
             { text: 'NT Roulette', link: '/pages/roulette' },
           ]
         }
-      ]
+      ],
+      '/project/': [
+        {
+          text: 'Project',
+          items: [
+            { text: 'Frog UI', link: '/project/frogui' },
+            { text: 'BEUI', link: '/project/beui' },
+          ]
+        }
+      ],
     },
 
     // socialLinks: [
