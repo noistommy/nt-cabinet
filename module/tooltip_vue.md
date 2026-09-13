@@ -19,6 +19,8 @@ outline: deep
 <BeTag class="lightgreen">Directive</BeTag>
 <BeTag class="red">NPM</BeTag>
 
+*2021년 개발*
+
 ## 소개
 `vue-nt-tooltip`은 vue의 사용자 정의 지시문(directive)이다.
 

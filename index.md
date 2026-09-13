@@ -1,40 +1,114 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
-
-hero:
-  name: "Scalable Frontend Architecture Engineer"
-  text: "김민영"
-  tagline: "Architecting semantic <span class='be-tag label red round'>Design systems</span> and crafting intuitive <span class='be-tag label blue round'>UI/UX</span>, built upon frontend engineering foundations."
-  #tagline: "프론트엔드 엔지니어링 기반 위에 시멘틱 디자인 시스템과 직관적인 UI/UX 컴포넌트 설계"
-  # actions:
-  #   - theme: brand
-  #     text: Introbuce BEUI
-  #   - theme: alt
-  #     text: React ver
-  #   - theme: alt
-  #     text: Vue ver
-
-features:
-  - icon:
-      src: /img/journey_beui.png
-      width: 100%
-    title: BEUI - UI인프라를 위한 여정
-    details:   
-    link: /beui/
-  - icon:
-      src: /img/nt_modules.png
-      width: 100%
-    title: 오픈 소스 - NT Modules
-    details:
-    link: /module/modal/
-  - icon:
-      src: /img/other_modules.png
-      width: 100% 
-    title: Other Works
-    details: 
-    link: /pages/scrollspy/
 ---
+
+
+<div class="large">
+
+**Kim Min-young (김민영)**
+
+</div>
+
+**Frontend Endineer | Developer**
+
+<section class="my-15">
+
+#### Today
+
+<div class="pt-8">
+안녕하세요! 10년차 프론트엔드 개발자 김민영입니다 <br />
+다양한 프로젝트를 경험하며 쌓인 화면 설계 및 UI/UX 기술을 바탕으로 <br />
+현재는 디자인 시스템과 UI 컴포넌트를 설계하고 재사용 모듈을 만들고 있습니다. 
+</div>
+
+
+</section>
+<section class="mb-15">
+
+<!-- #### Career
+
++ **(주)포그리트** | 2024.12 - 2025.05 | DX 플래폼 팀
++ **(주) 가비아** | 2019.11 - 2024.02 | Hiworks 그룹 플랫폼 TF팀, FE팀 플랫폼 파트
++ **엔쓰리엔(주)** | 2017.10 - 2019.11 | 플랫폼 본부 프론트엔드 담당
++ **소셜네트워크마케팅플랫폼** | 2014.08- 2016.10 | 프론트엔드 개발 담당 -->
+
+#### Project
+
+<div class="be-list selection my-10">
+  <div class="item">
+    <a href="/project/frogui" class="link"></a>
+    <div class="item-title p-6" >
+      Frog UI
+      <span class="sub-title">디자인 시스템 기반 정적 스타일 라이브러리</span>
+    </div> 
+  </div>
+  <div class="item">
+    <a href="/project/beui" class="link"></a>
+    <div class="item-title p-6">
+      BEUI
+      <span class="sub-title">Frog UI와 조합하기 위한 Headless UI 라이브러리</span>
+    </div> 
+  </div>
+  <div class="item">
+    <a href="/module/modal_react" class="link"></a>
+    <div class="item-title p-6">
+      NT Modules <span class="be-tag label round">NPM</span>
+      <span class="sub-title">Javascript 기반 Vue, React용 모듈 모음 (Modal, Toast, tooltip).</span>
+    </div> 
+  </div>
+</div>
+
+
+</section>
+<section class="mb-15">
+
+#### Write
+
+
+<div class="be-list selection my-10">
+  <div class="item">
+    <a href="/beui" class="link"></a>
+    <div class="item-title p-6" >
+      BEUI를 위한 여정
+      <span class="sub-title">Frog UI와 BEUI, 모듈들의 처음에 어떻게 만들어지고 분리되서 지금의 모습이 되었는지 과정에 대한 내용입니다.</span>
+    </div> 
+  </div>
+</div>
+
+
+</section>
+<section class="mb-15">
+
+#### Contact
+
+<div class="be-list pt-8">
+  <div class="item p-0">
+    <button class="be-button text">
+      <i class="icon left xi-mail" />
+      noistommy@gmail.com
+      <a href="mailto:noistommy@gmail.com" class="phone link"></a>
+    </button>
+  </div>
+  <div class="item">
+    <button class="be-button text">
+      <i class="icon left xi-mobile" />
+      010-4456-9329
+      <a href="tel:010-4456-9329" class="phone link"></a>
+    </button>
+  </div>
+  <div class="item">
+    <button class="be-button text">
+      <i class="icon left xi-linkedin" />
+      Kim Min-young
+      <a href="https://www.linkedin.com/in/minyoung-kim-noistommy" class="phone link"></a>
+    </button>
+  </div>
+</div>
+
+</section>
+
+
 <script setup>
   import NTThree from './components/NTThree.vue'
 
@@ -124,17 +198,31 @@ features:
   </template>
 </div> -->
 
-<style lang="scss">
+<style lang="scss" scoped>
   :root {
     --vp-home-hero-name-color: transparent;
     --vp-home-hero-name-background: -webkit-linear-gradient(120deg, var(--be-deepblue-color), var(--be-lightblue-color));
 
     --vp-button-brand-bg: var(--be-deepblue-color);
     --vp-button-brand-hover-bg: var(--be-blue-color);
+    /* font-size: 16px !important; */
+  }
+  span.code {
+    font-family: 'Ubuntu' !important;
+  }
+  p {
+    margin: 0;
   }
   a.link {
     width: 100%;
     height: 100%;
+    position: absolute;
+  }
+  a:hover {
+    background-color: transparent !important;
+  }
+  a.phone {
+    color: var(--txt) !important;
   }
   .slogan {
     padding: 1em 0;

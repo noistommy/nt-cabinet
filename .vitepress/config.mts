@@ -9,7 +9,7 @@ export default defineConfig({
     logo: { src: '/logo_tom.png', alt: 'logo' },
     nav: [
       { text: 'Resume', link: '/resume' },
-      { text: 'Journey for BEUI', link: '/beui/'  },
+      // { text: 'Journey for BEUI', link: '/beui/'  },
       { text: 'NT Module', items: [
         { text: 'React', items: [
           { text: 'Modal', link: '/module/modal_react' },

@@ -19,6 +19,8 @@ outline: deep
 <BeTag class="deepblue">+React</BeTag>
 <BeTag class="red">NPM</BeTag>
 
+*2026년 개발*
+
 ## 소개
 
   `nt-tooltip`은 Javascript로 만든 툴팁 모듈입니다. 커스텀 HTML 속성명(`nt-tooltip`)을 통해 툴팁과 옵션을 적용하며, HTML 작성 시 툴팁이 적용된 대상 엘리먼트를 직관적으로 확인할 수 있습니다. 간단한 텍스트는 속성 값으로 지정할 수 있고, 복잡한 HTML 콘텐츠는 `nt-target` 속성을 가진 자식 엘리먼트로 전달 가능합니다. 툴팁의 표시 방향은 `top`, `bottom`, `left`, `right` 등의 옵션으로 지정할 수 있습니다. (정확히 top-center, top-start, top-end, bottom-center 와 같이 방향-정렬 값으로 표시합니다.) 방향 지정 외 `theme`, `trigger`, `offset`, `size`, `maxWidth`, `padding` 등의 옵션도 지정 할 수 있습니다.

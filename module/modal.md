@@ -42,6 +42,8 @@ const setModal = () => {
 <BeTag class="green">VUE 3</BeTag>
 <BeTag class="red">NPM</BeTag>
 
+*2021년 개발*
+
 ## 소개
 
 `vue-nt-modal`은 Vue용 모달 시스템 라이브러리입니다. Vue3부터 지원하는 `teleport` 기능을 활용하여, 어플리케이션 외부에 사용자가 지정한 컴포넌트(컨텐츠)가 표시되도록 합니다.

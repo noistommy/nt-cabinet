@@ -18,6 +18,8 @@ outline: deep
 <BeTag class="deepblue">React</BeTag>
 <BeTag class="red">NPM</BeTag>
 
+*2026년 개발*
+
 ## 소개
 
 `react-nt-modal`은 react용 모달 시스템 모듈입니다. react에서 지원하는 `portal` 기능을 활용 하여 어플리케이션 외부에 사용자가 지정한 컴포넌트(컨텐츠)가 표시 되도록 합니다. 어플리케이션 외부에 생성하여 내부 레이어 시스템의 영향을 주지 않도록 구현하고 전역으로 동작하게 하여 사용자가 어플리케이션 어디에서든 최상위 레이어에 모달을 표시할 수 있도록 합니다. 기본적인 구조 (헤더, 닫기 버튼, 기본 버튼)를 제공하며 사용자는 모달 컨텐츠 부분만 component로 구현하여 import 시키면 됩니다. 또한 내부에 comfirm 처리가 가능한 component를 갖고 있어 간단하게 confirm 모달을 표시할수있도록 합니다.

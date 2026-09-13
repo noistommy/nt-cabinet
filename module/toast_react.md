@@ -18,6 +18,8 @@ outline: deep
 <BeTag class="deepblue">React</BeTag>
 <BeTag class="red">NPM</BeTag>
 
+*2026년 개발*
+
 ## 소개
 `react-nt-toast`는 자바스크립트 알림 시스템 라이브러리 입니다.
 
