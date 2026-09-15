@@ -33,7 +33,7 @@ layout: home
 + **엔쓰리엔(주)** | 2017.10 - 2019.11 | 플랫폼 본부 프론트엔드 담당
 + **소셜네트워크마케팅플랫폼** | 2014.08- 2016.10 | 프론트엔드 개발 담당 -->
 
-#### Project
+#### Projects
 
 <div class="be-list selection my-10">
   <div class="item">
@@ -63,7 +63,7 @@ layout: home
 </section>
 <section class="mb-15">
 
-#### Write
+#### Writing
 
 
 <div class="be-list selection my-10">
