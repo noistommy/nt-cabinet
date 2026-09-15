@@ -68,7 +68,7 @@
     'Climbing Rope',
     // 'Walk In Circle',
     // 'Spinning',
-    // 'Treading Water',
+    'Treading Water',
     'Waving',
     'Walk Left',
     // 'Entry'
@@ -376,6 +376,7 @@
       // controlCamera()
     }
   }
+
   </script>
   
   <template>

@@ -10,7 +10,7 @@ layout: home
 
 </div>
 
-**Frontend Endineer | Developer**
+**Frontend Engineer | Developer**
 
 <section class="my-15">
 
