@@ -3,7 +3,6 @@
 layout: home
 ---
 
-
 <div class="large">
 
 **Kim Min-young (김민영)**
@@ -21,7 +20,6 @@ layout: home
 다양한 프로젝트를 경험하며 쌓인 화면 설계 및 UI/UX 기술을 바탕으로 <br />
 현재는 디자인 시스템과 UI 컴포넌트를 설계하고 재사용 모듈을 만들고 있습니다. 
 </div>
-
 
 </section>
 <section class="mb-15">
@@ -57,25 +55,36 @@ layout: home
       <span class="sub-title">Javascript 기반 Vue, React용 모듈 모음 (Modal, Toast, tooltip).</span>
     </div> 
   </div>
+  <div class="item">
+    <a href="/pages/souple" class="link"></a>
+    <div class="item-title p-6">
+      Souple <span class="be-tag label round">NPM</span>
+      <span class="sub-title">Typescript React 기반 웹용 반응형 화면 뷰어 모듈.</span>
+    </div> 
+  </div>
 </div>
-
 
 </section>
 <section class="mb-15">
 
 #### Writing
 
-
 <div class="be-list selection my-10">
   <div class="item">
-    <a href="/beui" class="link"></a>
+    <a href="/blog/jouneyofbe" class="link"></a>
     <div class="item-title p-6" >
       BEUI를 위한 여정
       <span class="sub-title">Frog UI와 BEUI, 모듈들의 처음에 어떻게 만들어지고 분리되서 지금의 모습이 되었는지 과정에 대한 내용입니다.</span>
     </div> 
   </div>
+  <div class="item">
+    <a href="/blog/storyofbe" class="link"></a>
+    <div class="item-title p-6" >
+      BE의 의미
+      <span class="sub-title">BEUI 네이밍의 의미</span>
+    </div> 
+  </div>
 </div>
-
 
 </section>
 <section class="mb-15">
@@ -107,7 +116,6 @@ layout: home
 </div>
 
 </section>
-
 
 <script setup>
   import NTThree from './components/NTThree.vue'

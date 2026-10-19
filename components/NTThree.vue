@@ -2,8 +2,8 @@
   import * as THREE from 'three'
   import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
   import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-  
-  import {ref, reactive, computed, watch, onMounted} from 'vue'
+  import {Text} from 'troika-three-text'
+  import {ref, reactive, computed, watch, onMounted, onUnmounted} from 'vue'
 
   const props = defineProps({
     type: {
@@ -60,17 +60,17 @@
   }
 
   const gesture = [
-    // 'Pitching', 
-    // 'Golf Chip', 
+    'Pitching', 
+    'Golf Chip', 
     'Backflip', 
     'Clapping', 
     'Soccer Pass', 
     'Climbing Rope',
-    // 'Walk In Circle',
-    // 'Spinning',
-    'Treading Water',
     'Waving',
     'Walk Left',
+    // 'Walk In Circle',
+    // 'Spinning',
+    // 'Treading Water',
     // 'Entry'
   ]
 
@@ -84,7 +84,7 @@
     
   const container = ref(null);
 
-
+  const randomInterval = ref(null)
   
   const ntThree = () => {
     if (!container.value) return
@@ -99,7 +99,7 @@
     const o_camera = new THREE.OrthographicCamera(-frustumSize * ratio, frustumSize * ratio, frustumSize, -frustumSize, 0.1, 100);
   
     camera = o_camera
-    camera.position.set(0, 1.5, 4)
+    camera.position.set(0, 1.2, 4)
   
     renderer = new THREE.WebGLRenderer({ 
       antialias: true,
@@ -143,6 +143,22 @@
     // const material = new THREE.MeshStandardMaterial({
     //   flatShading: true
     // });
+
+    const title = new Text()
+    title.text = 'NOISTOMMY'
+    title.fontSize = 0.4
+    title.maxWidth = 2
+    title.lineHeight = 1
+    title.fontWeight = 800
+    title.color = 0x000000
+    title.anchorX = 'center'
+    title.anchorY = 'middle'
+    title.rotation.y = Math.PI
+    title.position.z = 0
+    title.fillOpacity = 1
+    title.position.set(0, 1, 5)
+    title.sync()
+    scene.add(title)
   
   
   
@@ -225,40 +241,20 @@
   
     
   
-    document.addEventListener('resize', resize())
-    document.addEventListener('scroll', (e) => {
-      const scrollEl = e.target.scrollingElement
-      scrollDir = scrollCount > scrollEl.scrollTop ? -1 : 1
-      scrollCount = scrollEl.scrollTop
-      // scrollSpeed = Math.abs(getScrollSpeed(scrollEl.scrollTop, performance.now()))
-      // if (scrollSpeed * 1000 < 100) {
-      //   changeAction(1)
-      // } else if (scrollSpeed * 1000 > 500) {
-      //   changeAction(3)
-      // } else {
-      //   changeAction()
-      // }
-      if (!permission.value) requestDeviceOrientationPermission()
-    })
-    document.addEventListener('keydown', (e) => {
-      if (e.ctrlKey) {
-        if (e.key == 'p') isPen.value = true
-        if (e.key == 'q') changeAction()
-      }
-      if (e.keyCode === 27) {
-        isPen.value = false
-        resetCamera()
-      }
-      // console.log(e)
-    } )
+    window.addEventListener('resize', resize)
+    document.addEventListener('scroll', setScroll)
+    document.addEventListener('keydown', setKeyEvent )
     
-    setInterval(() => {
-      const num = parseInt(Math.random() * 100) % gesture.length
-      if (isIdle.value && !lean.value) playOnceAnimation(gesture[num])
-    }, 10000);
+    randomInterval.value = setInterval(randomGesture, 10000);
     
   }
   onMounted(ntThree)
+
+  onUnmounted(() => {
+    window.removeEventListener('resize', resize)
+    document.removeEventListener('scroll', setScroll)
+    document.removeEventListener('keydown', setKeyEvent )
+  })
 
   watch(() => lean.value, value => {
       
@@ -285,6 +281,40 @@
   
     renderer.setSize(containerW, containerH)
   }
+
+  const setScroll = (event) => {
+    isPen.value = false
+    resetCamera()
+    const scrollEl = event.target.scrollingElement
+    scrollDir = scrollCount > scrollEl.scrollTop ? -1 : 1
+    scrollCount = scrollEl.scrollTop
+    // scrollSpeed = Math.abs(getScrollSpeed(scrollEl.scrollTop, performance.now()))
+    // if (scrollSpeed * 1000 < 100) {
+    //   changeAction(1)
+    // } else if (scrollSpeed * 1000 > 500) {
+    //   changeAction(3)
+    // } else {
+    //   changeAction()
+    // }
+    if (!permission.value) requestDeviceOrientationPermission()
+  }
+
+  const setKeyEvent = (event) => {
+    if (event.ctrlKey) {
+      if (event.key == 'p') isPen.value = true
+      if (event.key == 'q') changeAction()
+    }
+    if (event.key === 'Escape') {
+      isPen.value = false
+      resetCamera()
+    }
+  }
+
+  const randomGesture = () => {
+    const num = parseInt(Math.random() * 100) % gesture.length
+    if (isIdle.value && !lean.value) playOnceAnimation(gesture[num])
+  }
+    
   
   const playAnimation = (name, timeScale = true) => {
     if (!actions[name]) return
@@ -296,9 +326,9 @@
       actionName.value = name
     }
   }
-  function playOnceAnimation(name) {
+  function playOnceAnimation(name, repeat = 1) {
     currentAction?.fadeOut(0.3)
-    actions[name].setLoop(THREE.LoopOnce)
+    actions[name].setLoop(THREE.LoopOnce * repeat)
     actions[name].clampWhenFinished = true
     actions[name].reset().fadeIn(0.3).play()
     currentAction = actions[name]
@@ -309,18 +339,18 @@
   }
   const radius = 4;
   let angle = Math.PI / 2;
-  const c_speed = 0.005;
-  let cc = false
+  const c_speed = 0.0045;
+  let cc = true
   const controlCamera = () => {
     angle += c_speed * (cc ? 1 : -1);
     camera.position.x = Math.cos(angle) * radius
     camera.position.z = Math.sin(angle) * radius
-    camera.position.y = 1
+    camera.position.y = 1.2
   }
   const resetCamera = () => {
-    camera.position.set(0, 1.5, 4)
+    camera.position.set(0, 1.2, 4)
   }
-  const forwardList = ['Standard Walking', 'Soft Walking', 'Happy Walking', 'Running']
+  const forwardList = ['Soft Walking', 'Standard Walking', 'Happy Walking', 'Running']
   const changeAction = (forward = null) => {
     if (forwardAction.value === forwardList[forward]) return
     if (forward) {
@@ -377,11 +407,48 @@
     }
   }
 
+  const previewForwardAction = (name) => {
+    clearInterval(randomInterval.value)
+    playOnceAnimation(name, 2)
+    randomInterval.value = setInterval(randomGesture, 5000);
+  }
+  
+
   </script>
   
   <template>
     <div id="NTThree" class="container" :class="type">
-      <slot name="header" />
+      <slot name="header">
+        <div class="control be flex column end gap-1">
+          <button class="be-button icon compact m-0"  
+          @click="isPen = !isPen;" 
+          :class="{selected: isPen}" 
+          nt-tooltip="content: Penning Camera; pos:right; size: small; padding: 2"
+          >
+            <i class="xi-spinner-4" :class="{ 'xi-spin': isPen }"></i>
+          </button>
+          <button class="be-button icon compact outline m-0" 
+          @click="randomGesture" 
+          nt-tooltip="content: Change Action; pos:right; size: small; padding: 2"
+          >
+            <i class="xi-run"></i>
+          </button>
+          <div class="be-buttons select-forward" nt-tooltip="content: Forward Action; pos:right-center; size: small; padding: 2">
+            <button class="be-button icon compact " :class="{selected: forwardAction === 'Soft Walking'}" @click="changeAction(0)" @mouseenter="previewForwardAction('Soft Walking')" nt-tooltip="content: Change Action; pos:right; size: small; padding: 2">
+              <i class="xi-emoticon-smiley-o"></i>
+            </button>
+            <button class="be-button icon compact " :class="{selected: forwardAction === 'Standard Walking'}" @click="changeAction(1)" @mouseenter="previewForwardAction('Standard Walking')">
+              <i class="xi-emoticon-neutral-o"></i>
+            </button>
+            <button class="be-button icon compact " :class="{selected: forwardAction === 'Happy Walking'}" @click="changeAction(2)" @mouseenter="previewForwardAction('Happy Walking')">
+              <i class="xi-emoticon-cool-o"></i>
+            </button>
+            <button class="be-button icon compact " :class="{selected: forwardAction === 'Running'}" @click="changeAction(3)" @mouseenter="previewForwardAction('Running')">
+              <i class="xi-emoticon-devil-o"></i>
+            </button>
+          </div>
+        </div>
+      </slot>
       <div class="nt-canvas" ref="container"></div>
       <!-- <div class="permiss" v-if="!permission">
         <div class="be-tag label kbd" @click="requestDeviceOrientationPermission">
@@ -400,12 +467,29 @@
 
   <style lang="scss" scoped>
     #NTThree {
-      &.main {
-        position: fixed; 
-        top: 10dvh;
-        left: 50%;
-        z-index: 1;
+    &:hover {
+      .control {
+        display: flex;
       }
+    }
+    .control {
+      display: none;
+      padding: 8px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+      button {
+        pointer-events: auto;
+      }
+    }
+
+    &.main {
+      position: fixed; 
+      top: 10dvh;
+      right: 0;
+      z-index: 1;
+    }
       
 
       // z-index: 9999;
@@ -442,7 +526,7 @@
 
     @media (max-width: 400px ) {
       #NTThree {
-        transform: translateX(-50%);
+        transform: translateX(0);
       }
     }
   </style>

@@ -1,8 +1,10 @@
 {
   "devDependencies": {
+    "@noistommy/nt-tooltip": "^1.0.8",
     "noist-beui": "^0.2.6",
     "sass": "^1.89.2",
     "three": "^0.182.0",
+    "troika-three-text": "^0.52.5",
     "vitepress": "^1.6.3"
   },
   "scripts": {

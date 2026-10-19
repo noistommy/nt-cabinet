@@ -1,9 +1,16 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
-import {onMounted} from 'vue'
+import {onMounted, onUnmounted} from 'vue'
 import { Analytics } from "@vercel/analytics/vue"
+import {initTooltip, clearTooltip} from '@noistommy/nt-tooltip'
+import '@noistommy/nt-tooltip/nt-tooltip.css'
 
-onMounted(() => (document?.documentElement.classList.add('light')))
+onMounted(() => {
+  (document?.documentElement.classList.add('light'))
+  initTooltip()
+})
+
+onUnmounted(() => (clearTooltip()))
 
 
 const { Layout } = DefaultTheme

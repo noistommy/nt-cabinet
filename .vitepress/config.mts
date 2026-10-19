@@ -23,10 +23,10 @@ export default defineConfig({
         ]},
       ] },
       { text: 'Works', items: [
-        // { text: 'Test Page', link: '/pages/test-page' },
-        { text: 'NT Scrollspy', link: '/pages/scrollspy' },
-        { text: 'NT Number Puzzle', link: '/pages/number-puzzle' },
-        { text: 'NT Roulette', link: '/pages/roulette' },
+        { text: 'Souple', link: '/pages/souple' },
+        { text: 'Scrollspy', link: '/pages/scrollspy' },
+        { text: 'Number Puzzle', link: '/pages/number-puzzle' },
+        { text: 'Roulette', link: '/pages/roulette' },
       ] },
     ],
 
@@ -57,12 +57,12 @@ export default defineConfig({
         {
           text: 'NT Module',
           items: [
-            { text: 'React', items: [
+            { text: 'for React', items: [
               { text: 'Modal', link: '/module/modal_react' },
               { text: 'Toast', link: '/module/toast_react' },
               { text: 'Tooltip', link: '/module/tooltip' },
             ] },
-            { text: 'Vue', items: [
+            { text: 'for Vue', items: [
               { text: 'Toast', link: '/module/toast_vue' },
               { text: 'Modal', link: '/module/modal' },
               { text: 'Tooltip', link: '/module/tooltip_vue' },
@@ -74,9 +74,10 @@ export default defineConfig({
         {
           text: 'Pages',
           items: [
-            { text: 'NT Scrollspy', link: '/pages/scrollspy' },
-            { text: 'NT Number Puzzle', link: '/pages/number-puzzle' },
-            { text: 'NT Roulette', link: '/pages/roulette' },
+            { text: 'Souple', link: '/pages/souple' },
+            { text: 'Scrollspy', link: '/pages/scrollspy' },
+            { text: 'Number Puzzle', link: '/pages/number-puzzle' },
+            { text: 'Roulette', link: '/pages/roulette' },
           ]
         }
       ],

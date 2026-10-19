@@ -7,7 +7,7 @@ title: Number Puzzle
 lastUpdated: true
 editLink: true
 navbar: true
-sidebar: false
+sidebar: true
 aside:  true
 outline: deep
 ---

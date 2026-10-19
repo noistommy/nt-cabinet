@@ -3,14 +3,13 @@ layout: doc
 
 title: NT Modal
 # titleTemplate:
-# description:  
+# description:
 lastUpdated: true
 editLink: true
 navbar: true
 sidebar: true
-aside:  true
+aside: true
 outline: deep
-
 ---
 
 <script setup>
@@ -42,7 +41,7 @@ const setModal = () => {
 <BeTag class="green">VUE 3</BeTag>
 <BeTag class="red">NPM</BeTag>
 
-*2021년 개발*
+_2021년 개발_
 
 ## 소개
 
@@ -68,6 +67,8 @@ const setModal = () => {
 
 다양한 옵션을 확인할 수 있는 공식 페이지입니다.
 
+![modal_react_preview](../public/img/preview/nt-modal-preview-light.png)
+
 <div class="be-button">
   <i class="icon left xi-link" />
   NT Modal
@@ -77,13 +78,14 @@ Demo page
 
 ## Install
 
-```bash 
-$ npm install -D vue-nt-modal 
+```bash
+$ npm install -D vue-nt-modal
 ```
 
 ## How to use
 
 ::: code-group
+
 ```js [Registration]
 // main.js
 // import Module & style
@@ -92,35 +94,37 @@ import 'vue-nt-madal/nt-modal.css';
 
 const defaultOptions = { ... };
 
-// global install 
+// global install
 app.use(NtModal, defaultOptions);
 ```
-```js [show]
-import { inject } from 'vue';
 
-const ntModal = inject('$ntModal')
+```js [show]
+import { inject } from "vue";
+
+const ntModal = inject("$ntModal");
 
 // show modal
 ntModal.show({
-  comp: <Component /> || 'confirm',
+  comp: <Component /> || "confirm",
   props: {
     // conponent`s pros
   },
   options: {
     // custom options
-  }
-})
+  },
+});
 ```
+
 ```html [close]
 <span @click="$emit('close')">...</span>
 ```
 
-## Props 
+## Props
 
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| clickToClose | *boolean* | `true` | Setting close by click on the background. |
-| escapeToClose | *boolean* | `true` | Setting close by press the ESC button. |
+| Name          | Type      | Default | Description                               |
+| ------------- | --------- | ------- | ----------------------------------------- |
+| clickToClose  | _boolean_ | `true`  | Setting close by click on the background. |
+| escapeToClose | _boolean_ | `true`  | Setting close by press the ESC button.    |
 
 ## 링크
 

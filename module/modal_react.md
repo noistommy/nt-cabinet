@@ -3,14 +3,13 @@ layout: doc
 
 title: NT Modal:React
 # titleTemplate:
-# description:  
+# description:
 lastUpdated: true
 editLink: true
 navbar: true
 sidebar: true
-aside:  true
+aside: true
 outline: deep
-
 ---
 
 # NT Modal (React)
@@ -18,7 +17,7 @@ outline: deep
 <BeTag class="deepblue">React</BeTag>
 <BeTag class="red">NPM</BeTag>
 
-*2026년 개발*
+_2026년 개발_
 
 ## 소개
 
@@ -33,6 +32,8 @@ outline: deep
 ## Demo
 
 다양한 옵션을 확인할 수 있는 공식 페이지입니다.
+
+![modal_react_preview](../public/img/preview/nt-modal-preview-light.png)
 
 <div class="be-button">
   <i class="icon left xi-link" />
@@ -49,50 +50,56 @@ $ npm install react-nt-modal
 
 ## How to use
 
-
-### 1. Provider로 감싸기 
+### 1. Provider로 감싸기
 
 ```jsx
-import { ModalProvider } from 'react-nt-modal'
+import { ModalProvider } from "react-nt-modal";
 
 export default function App() {
   return (
-    <ModalProvider options={{ useStack: true, clickToClose: false, escapeToClose: false, offset: 20 }}>
+    <ModalProvider
+      options={{
+        useStack: true,
+        clickToClose: false,
+        escapeToClose: false,
+        offset: 20,
+      }}
+    >
       <YourApp />
     </ModalProvider>
-  )
+  );
 }
 ```
 
 ### 2. 모달 열기
 
 ```tsx
-import { useModal, type ModalContentProps } from 'react-nt-modal'
-import MyModalContent, { type MyModalContentProps } from './MyModalContent'
+import { useModal, type ModalContentProps } from "react-nt-modal";
+import MyModalContent, { type MyModalContentProps } from "./MyModalContent";
 
 function SomeComponent() {
-  const { show } = useModal()
+  const { show } = useModal();
 
   const open = () => {
     show<MyModalContentProps>({
-      comp: MyModalContent,     // 컴포넌트 or 'confirm'
-      props: { title: '제목' }, // 컨텐츠 컴포넌트에 전달될 props (타입 체크됨)
+      comp: MyModalContent, // 컴포넌트 or 'confirm'
+      props: { title: "제목" }, // 컨텐츠 컴포넌트에 전달될 props (타입 체크됨)
       options: { clickToClose: true }, // 이 모달만의 옵션 (선택)
-    })
-  }
+    });
+  };
 
-  return <button onClick={open}>Open</button>
+  return <button onClick={open}>Open</button>;
 }
 ```
 
 ### 3. 컨텐츠 컴포넌트에서 닫기
 
 ```tsx
-import { useModal, type ModalContentProps } from 'react-nt-modal'
+import { useModal, type ModalContentProps } from "react-nt-modal";
 
 export interface MyModalContentProps {
-  title: string
-  useHeader?: boolean
+  title: string;
+  useHeader?: boolean;
 }
 
 function MyModalContent({
@@ -101,19 +108,23 @@ function MyModalContent({
   useHeader,
   title,
 }: ModalContentProps & MyModalContentProps) {
-  const { close } = useModal()
+  const { close } = useModal();
 
   return (
     <div className="modal">
       {useHeader && header /* NtModal이 자동 생성한 title + close 버튼 */}
       <div className="modal-contents">...</div>
       <div className="modal-footer">
-        <button className="nt-button text" onClick={onClose}>취소</button>
+        <button className="nt-button text" onClick={onClose}>
+          취소
+        </button>
         // or
-        <button className="nt-button text" onClick={close}>취소</button>
+        <button className="nt-button text" onClick={close}>
+          취소
+        </button>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -122,13 +133,13 @@ function MyModalContent({
 
 ---
 
-## Props 
+## Props
 
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| useStack | *boolean* | `true` | Setting use multiple modal. |
-| clickToClose | *boolean* | `true` | Setting close by click on the background. |
-| escapeToClose | *boolean* | `true` | Setting close by press the ESC button. |
+| Name          | Type      | Default | Description                               |
+| ------------- | --------- | ------- | ----------------------------------------- |
+| useStack      | _boolean_ | `true`  | Setting use multiple modal.               |
+| clickToClose  | _boolean_ | `true`  | Setting close by click on the background. |
+| escapeToClose | _boolean_ | `true`  | Setting close by press the ESC button.    |
 
 ## 링크
 
@@ -142,4 +153,3 @@ function MyModalContent({
   npm
   <a class="link" href=" https://www.npmjs.com/package/react-nt-modal" target="_blank" />
 </div>
-

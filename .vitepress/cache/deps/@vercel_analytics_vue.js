@@ -11,6 +11,7 @@ import {
   watch,
   watchEffect
 } from "./chunk-XV6CE6JT.js";
+import "./chunk-PETI6O6C.js";
 
 // node_modules/vue-router/dist/devtools-BLCumUwL.mjs
 var isBrowser = typeof document !== "undefined";
