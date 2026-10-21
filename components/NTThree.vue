@@ -263,7 +263,7 @@
       
       const num = parseInt(Math.random() * 100) % gesture.length
       console.log(value, value > 0)
-      if (value && isIdle.value) {
+      if (value) {
         playAnimation('Walk Left', value > 0)
       } else {
         previewForwardAction(gesture[num])
@@ -395,13 +395,13 @@
       // angle = Math.PI
       // controlCamera()
       // isPen.value = true
-      // cc = true
+      cc = true
     } else if (event.gamma < -10) {
       lean.value = -1
       // angle = 0
       // controlCamera()
       // isPen.value = true
-      // cc = false
+      cc = false
     } else {
       lean.value = 0
       // isPen.value = false
