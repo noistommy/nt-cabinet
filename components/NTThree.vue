@@ -85,6 +85,7 @@
   const container = ref(null);
 
   const randomInterval = ref(null)
+  // const cameraMode = ref(null)
   
   const ntThree = () => {
     if (!container.value) return
@@ -107,7 +108,7 @@
     })
     renderer.setSize(containerW, containerH)
     renderer.shadowMap.enabled = true
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap
+    // renderer.shadowMap.type = THREE.PCFSoftShadowMap
   
     container.value.appendChild(renderer.domElement)
   
@@ -116,7 +117,7 @@
     controls.dampingFactor = 0.05
     controls.target.set(0, 1, 0)   // 카메라 중심점 설정
   
-    const gridHelper = setGrid()
+    // const gridHelper = setGrid()
     // scene.add(gridHelper)
   
     const planeGeometry = new THREE.PlaneGeometry(100, 100)
@@ -187,12 +188,14 @@
       console.log('GLB load error:', error)
     })
     
-    const clock = new THREE.Clock()
+    const clock = new THREE.Timer()
     let oldElapsedTime = 0
 
-    const animate = () => {
+    const animate = (timestamp) => {
+
+      clock.update(timestamp, true)
       // const deltaTime = clock.getDelta()
-      const elapsedTime = clock.getElapsedTime()
+      const elapsedTime = clock.getElapsed()
       const deltaTime = elapsedTime - oldElapsedTime
       oldElapsedTime = elapsedTime
 
@@ -263,7 +266,7 @@
       if (value && isIdle.value) {
         playAnimation('Walk Left', value > 0)
       } else {
-        playOnceAnimation(gesture[num], false)
+        previewForwardAction(gesture[num])
       }
   })
   
@@ -353,7 +356,7 @@
   const forwardList = ['Soft Walking', 'Standard Walking', 'Happy Walking', 'Running']
   const changeAction = (forward = null) => {
     if (forwardAction.value === forwardList[forward]) return
-    if (forward) {
+    if (forward !== null) {
       forwardAction.value =  forwardList[forward]
     } else {
 
@@ -387,13 +390,13 @@
     }
   }
   const handleOrientation = (event) => {
-    if (event.gamma > 10) {
+    if (event.gamma > 50) {
       lean.value = 1
       // angle = Math.PI
       // controlCamera()
       // isPen.value = true
       // cc = true
-    } else if (event.gamma < -10) {
+    } else if (event.gamma < -50) {
       lean.value = -1
       // angle = 0
       // controlCamera()
@@ -410,7 +413,7 @@
   const previewForwardAction = (name) => {
     clearInterval(randomInterval.value)
     playOnceAnimation(name, 2)
-    randomInterval.value = setInterval(randomGesture, 5000);
+    randomInterval.value = setInterval(randomGesture, 10000);
   }
   
 
@@ -433,17 +436,40 @@
           >
             <i class="xi-run"></i>
           </button>
-          <div class="be-buttons select-forward" nt-tooltip="content: Forward Action; pos:right-center; size: small; padding: 2">
-            <button class="be-button icon compact " :class="{selected: forwardAction === 'Soft Walking'}" @click="changeAction(0)" @mouseenter="previewForwardAction('Soft Walking')" nt-tooltip="content: Change Action; pos:right; size: small; padding: 2">
+          <div class="be flex column center mid gap-2 p-0 forward-select" >
+            <button 
+              class="be-button icon compact round m-0" 
+              nt-tooltip="content: Soft Walk; pos:right-center; size: small; padding: 2"
+              :class="{selected: forwardAction === 'Soft Walking'}" 
+              @click="changeAction(0)" 
+              @mouseenter="previewForwardAction('Soft Walking')"
+            >
               <i class="xi-emoticon-smiley-o"></i>
             </button>
-            <button class="be-button icon compact " :class="{selected: forwardAction === 'Standard Walking'}" @click="changeAction(1)" @mouseenter="previewForwardAction('Standard Walking')">
+            <button 
+              class="be-button icon compact round m-0"
+              nt-tooltip="content: Walking; pos:right-center; size: small; padding: 2" 
+              :class="{selected: forwardAction === 'Standard Walking'}" 
+              @click="changeAction(1)" 
+              @mouseenter="previewForwardAction('Standard Walking')"
+            >
               <i class="xi-emoticon-neutral-o"></i>
             </button>
-            <button class="be-button icon compact " :class="{selected: forwardAction === 'Happy Walking'}" @click="changeAction(2)" @mouseenter="previewForwardAction('Happy Walking')">
+            <button 
+              class="be-button icon compact round m-0" 
+              nt-tooltip="content: Happy Walk; pos:right-center; size: small; padding: 2" 
+              :class="{selected: forwardAction === 'Happy Walking'}" 
+              @click="changeAction(2)" 
+              @mouseenter="previewForwardAction('Happy Walking')"
+            >
               <i class="xi-emoticon-cool-o"></i>
             </button>
-            <button class="be-button icon compact " :class="{selected: forwardAction === 'Running'}" @click="changeAction(3)" @mouseenter="previewForwardAction('Running')">
+            <button 
+              class="be-button icon compact round m-0" 
+              :class="{selected: forwardAction === 'Running'}" 
+              nt-tooltip="content: Running; pos:right-center; size: small; padding: 2" 
+              @click="changeAction(3)" 
+              @mouseenter="previewForwardAction('Running')">
               <i class="xi-emoticon-devil-o"></i>
             </button>
           </div>
@@ -522,6 +548,26 @@
       right: 0;
       z-index:9999;
       padding: 5px;
+    }
+
+    .forward-select {
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background-color: #d6d6d6;
+      }
+      button i {
+        display: none;
+      }
+      button.selected i {
+        display: block;
+      }
     }
 
     @media (max-width: 400px ) {
