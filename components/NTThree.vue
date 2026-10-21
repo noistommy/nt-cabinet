@@ -390,13 +390,13 @@
     }
   }
   const handleOrientation = (event) => {
-    if (event.gamma > 50) {
+    if (event.gamma > 10) {
       lean.value = 1
       // angle = Math.PI
       // controlCamera()
       // isPen.value = true
       // cc = true
-    } else if (event.gamma < -50) {
+    } else if (event.gamma < -10) {
       lean.value = -1
       // angle = 0
       // controlCamera()
