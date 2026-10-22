@@ -259,12 +259,12 @@
     document.removeEventListener('keydown', setKeyEvent )
   })
 
-  watch(() => lean.value, value => {
+  watch(() => lean.value,(newValue, oldValue) => {
       
       const num = parseInt(Math.random() * 100) % gesture.length
-      console.log(value, value > 0)
-      if (value) {
-        playAnimation('Walk Left', value > 0)
+      console.log(oldValue, newValue)
+      if (newValue) {
+        playAnimation('Walk Left', newValue > 0)
       } else {
         previewForwardAction(gesture[num])
       }
@@ -488,6 +488,10 @@
           {{forwardAction}}
         </div>
       </div> -->
+      <div v-if="permission" class="slope-sign">
+        <i v-if="lean === -1" class="left xi-arrow-left"></i>
+        <i v-if="lean === 1" class="right xi-arrow-right"></i>
+      </div>
     </div>
   </template>
 
@@ -507,6 +511,30 @@
       z-index: 1;
       button {
         pointer-events: auto;
+      }
+    }
+    .slope-sign {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index:1;
+      pointer-events: none;
+      width: 250px;
+      height: 50px;
+
+      i {
+        position: absolute;
+        top:0;
+        font-size: 20px;
+        font-size: 3em;
+        opacity: 0.3;
+        &.left {
+          left: 0;
+        }
+        &.right {
+          right: 0;
+        }
       }
     }
 
