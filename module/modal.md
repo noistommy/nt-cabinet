@@ -53,6 +53,22 @@ _2021년 개발_
 
 창 닫기 기능과 관련된 다양한 옵션을 지정할 수 있으며, 옵션에 따라 **배경 영역 클릭** 또는 **ESC 키 입력**으로 모달을 닫을 수 있습니다. 또한, **모달 내부에서 다른 모달을 호출하는 기능**도 지원하여 여러 개의 모달을 순차적으로 열고 닫을 수 있습니다.
 
+## Demo
+
+다양한 옵션을 확인할 수 있는 공식 페이지입니다.
+
+<div class="be-segment border">
+
+![modal_react_preview](../public/img/preview/nt-modal-preview-light.png)
+
+</div>
+
+<div class="be-button text">
+  <i class="icon left xi-link" />
+  Go to Demo
+  <a class="link" href="https://noistommy.github.io/vue-nt-modal" target="_blank" />
+</div>
+
 ## Example
 
 기본 모달 동작을 확인하세요.
@@ -62,19 +78,6 @@ _2021년 개발_
     <div class="be-button" @click="setModal">Show Modal</div>
   </div>
 </div>
-
-## Demo
-
-다양한 옵션을 확인할 수 있는 공식 페이지입니다.
-
-![modal_react_preview](../public/img/preview/nt-modal-preview-light.png)
-
-<div class="be-button">
-  <i class="icon left xi-link" />
-  NT Modal
-  <a class="link" href="https://noistommy.github.io/vue-nt-modal" target="_blank" />
-</div>
-Demo page
 
 ## Install
 

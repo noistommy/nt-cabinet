@@ -49,7 +49,7 @@ layout: home
     </div> 
   </div>
   <div class="item">
-    <a href="/module/modal_react" class="link"></a>
+    <a href="/module/tooltip" class="link"></a>
     <div class="item-title p-6">
       NT Modules <span class="be-tag label round">NPM</span>
       <span class="sub-title">Javascript 기반 Vue, React용 모듈 모음 (Modal, Toast, tooltip).</span>

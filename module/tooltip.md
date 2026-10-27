@@ -3,14 +3,13 @@ layout: doc
 
 title: NT Tooltip
 # titleTemplate:
-# description:  
+# description:
 lastUpdated: true
 editLink: true
 navbar: true
 sidebar: true
-aside:  true
+aside: true
 outline: deep
-
 ---
 
 # NT Tooltip
@@ -19,52 +18,62 @@ outline: deep
 <BeTag class="deepblue">+React</BeTag>
 <BeTag class="red">NPM</BeTag>
 
-*2026년 개발*
+_2026년 개발_
 
 ## 소개
 
-  `nt-tooltip`은 Javascript로 만든 툴팁 모듈입니다. 커스텀 HTML 속성명(`nt-tooltip`)을 통해 툴팁과 옵션을 적용하며, HTML 작성 시 툴팁이 적용된 대상 엘리먼트를 직관적으로 확인할 수 있습니다. 간단한 텍스트는 속성 값으로 지정할 수 있고, 복잡한 HTML 콘텐츠는 `nt-target` 속성을 가진 자식 엘리먼트로 전달 가능합니다. 툴팁의 표시 방향은 `top`, `bottom`, `left`, `right` 등의 옵션으로 지정할 수 있습니다. (정확히 top-center, top-start, top-end, bottom-center 와 같이 방향-정렬 값으로 표시합니다.) 방향 지정 외 `theme`, `trigger`, `offset`, `size`, `maxWidth`, `padding` 등의 옵션도 지정 할 수 있습니다.
-  
-  `nt-tooltip` is a tooltip module written in JavaScript. Tooltips and options are applied via a custom HTML attribute (`nt-tooltip`), so you can intuitively see which elements have tooltips when writing HTML. Simple text can be set as the attribute value, and more complex HTML content can be passed through a child element with the `nt-target` attribute. The tooltip placement can be set with options such as `top`, `bottom`, `left`, and `right`. (More precisely, it uses direction-alignment values such as `top-center`, `top-start`, `top-end`, and `bottom-center`.) In addition to placement, you can also set options such as `theme`, `trigger`, `offset`, `size`, `maxWidth`, and `padding`.
+`nt-tooltip`은 Javascript로 만든 툴팁 모듈입니다. 커스텀 HTML 속성명(`nt-tooltip`)을 통해 툴팁과 옵션을 적용하며, HTML 작성 시 툴팁이 적용된 대상 엘리먼트를 직관적으로 확인할 수 있습니다. 간단한 텍스트는 속성 값으로 지정할 수 있고, 복잡한 HTML 콘텐츠는 `nt-target` 속성을 가진 자식 엘리먼트로 전달 가능합니다. 툴팁의 표시 방향은 `top`, `bottom`, `left`, `right` 등의 옵션으로 지정할 수 있습니다. (정확히 top-center, top-start, top-end, bottom-center 와 같이 방향-정렬 값으로 표시합니다.) 방향 지정 외 `theme`, `trigger`, `offset`, `size`, `maxWidth`, `padding` 등의 옵션도 지정 할 수 있습니다.
 
+`nt-tooltip` is a tooltip module written in JavaScript. Tooltips and options are applied via a custom HTML attribute (`nt-tooltip`), so you can intuitively see which elements have tooltips when writing HTML. Simple text can be set as the attribute value, and more complex HTML content can be passed through a child element with the `nt-target` attribute. The tooltip placement can be set with options such as `top`, `bottom`, `left`, and `right`. (More precisely, it uses direction-alignment values such as `top-center`, `top-start`, `top-end`, and `bottom-center`.) In addition to placement, you can also set options such as `theme`, `trigger`, `offset`, `size`, `maxWidth`, and `padding`.
 
 ## Demo
 
-모든 옵션 및 실행 테스트가 가능한 공식 페이지입니다. 
-
+모든 옵션 및 실행 테스트가 가능한 공식 페이지입니다.
 
 ![docs_preview](../public/img/tooltip_preview.png)
 
-<div class="be-button" v-nt-tooltip="`Tooltip test`">
+<div class="be-button text" v-nt-tooltip="`Tooltip test`">
   <i class="icon left xi-link" />
-  NT Tooptip
+  Go to Demo
   <a class="link" href="https://noistommy.github.io/nt-tooltip" target="_blank" />
 </div>
-Demo page
+
+## Example
+
+각 방향별 툴팁 표시 예제입니다.
+
+<div class="be-segment border">
+  <div class="contents">
+    <div class="be-button" nt-tooltip="content: Tooltip Top">up</div>
+    <div class="be-button" nt-tooltip="content: Tooltip Bottom; pos: bottom-center">bottom</div>
+    <div class="be-button" nt-tooltip="content: Tooltip Left; pos: left-center">left</div>
+    <div class="be-button" nt-tooltip="content: Tooltip Right; pos: right-center">right</div>
+  </div>
+</div>
 
 ## Installation
 
 #### NPM
 
-```bash 
+```bash
 npm install @noistommy/nt-tooltip
 ```
 
 #### CDN
 
-```html 
+```html
 <!-- unpkg -->
 <script src="https://unpkg.com/@noistommy/nt-tooltip"></script>
 <!-- jsdelivr -->
 <script src="https://cdn.jsdelivr.net/npm/@noistommy/nt-tooltip"></script>
 ```
 
-
 ## How to use
 
 #### Registration
 
 ::: code-group
+
 ```tsx [React(es)]
 // app.tsx
 import React, { useEffect } from 'react';
@@ -82,23 +91,21 @@ function App() {
   ...
 }
 ```
-``` javascript [cjs]
 
-const ntTooltip = require('@noistommy/nt-tooltip');
-require('@noistommy/nt-tooltip/nt-tooltip.css');
+```javascript [cjs]
+const ntTooltip = require("@noistommy/nt-tooltip");
+require("@noistommy/nt-tooltip/nt-tooltip.css");
 
 // after mounted Dom
-ntTooltip.initTooltip()
-
+ntTooltip.initTooltip();
 ```
-``` javascript [umd]
 
+```javascript [umd]
 // loaded nt-tooltip.umd.js file from CDN(unpkg, jsdelivr)
 
-document.addEventListener('DOMContentLoaded', () => {
-  NtTooltip.initTooltip()
-})
-
+document.addEventListener("DOMContentLoaded", () => {
+  NtTooltip.initTooltip();
+});
 ```
 
 :::
@@ -122,24 +129,22 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 ```
 
+## Props
 
-## Props 
-
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| content | *string* | `''` | Setting content text of tooltip. |
-| selector | *string* | `nt-tooltip` | Setting selector attribute name. |
-| pos | *string* | `top-center` | Setting position-aligns of tooltip. |
-| invert | *boolean* | `true` | Setting theme of tooltip. |
-| trigger | *string* | `hover` | Setting trigger event type. `hover \| click` |
-| size | *string* | `''` | Setting size of tooltip. `small \| null` |
-| padding | *number* | `8` | Setting padding of tooltip. |
-| maxWidth | *number* | `250` | Setting the max width size(px) of tooltip. |
-| textAlign | *string* | `center` | Setting alignment of tooltip content. |
-| offset | *number* | `10` | Setting distance offset between tooltip and target Element. |
-| customClass | *string* | `''` | Setting user custom classname. |
-| zIndex | *string* | `''` | Setting zIndex Tooltip. |
-
+| Name        | Type      | Default      | Description                                                 |
+| ----------- | --------- | ------------ | ----------------------------------------------------------- |
+| content     | _string_  | `''`         | Setting content text of tooltip.                            |
+| selector    | _string_  | `nt-tooltip` | Setting selector attribute name.                            |
+| pos         | _string_  | `top-center` | Setting position-aligns of tooltip.                         |
+| invert      | _boolean_ | `true`       | Setting theme of tooltip.                                   |
+| trigger     | _string_  | `hover`      | Setting trigger event type. `hover \| click`                |
+| size        | _string_  | `''`         | Setting size of tooltip. `small \| null`                    |
+| padding     | _number_  | `8`          | Setting padding of tooltip.                                 |
+| maxWidth    | _number_  | `250`        | Setting the max width size(px) of tooltip.                  |
+| textAlign   | _string_  | `center`     | Setting alignment of tooltip content.                       |
+| offset      | _number_  | `10`         | Setting distance offset between tooltip and target Element. |
+| customClass | _string_  | `''`         | Setting user custom classname.                              |
+| zIndex      | _string_  | `''`         | Setting zIndex Tooltip.                                     |
 
 ## 링크
 

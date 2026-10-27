@@ -38,6 +38,23 @@ Vue 프로젝트 내 plugin 설치를 통해 사용 가능하도록 제작 되�
 
 테마, 위치, 스낵바 모드 등 여러 옵션을 전역에서 설정 하여 전체 시스템에 반영 하도록 할 수 있고, 사용자가 실행할 때 마다 옵션을 변경해서 적용 할 수도 있습니다.
 
+## Demo
+
+모든 타입, 옵션 테스트가 가능한 공식 사이트입니다.
+
+<div class="be-segment border">
+
+![toast_vue_preview](../public/img/preview/nt-toast-preview-light.png)
+
+</div>
+
+<div class="be-button badge text">
+  <i class="icon left xi-link" />
+  Go to Demo
+  <span class="in-badge be-green">vue</span>
+  <a class="link" href="https://noistommy.github.io/vue-nt-toast" target="_blank" />
+</div>
+
 ## Example
 
 주요 옵션을 간단하게 실행해 보세요.
@@ -70,20 +87,6 @@ Vue 프로젝트 내 plugin 설치를 통해 사용 가능하도록 제작 되�
     </div>
   </div>
 </div>
-
-## Demo
-
-모든 타입, 옵션 테스트가 가능한 공식 사이트입니다.
-
-![toast_vue_preview](../public/img/preview/nt-toast-preview-light.png)
-
-<div class="be-button badge">
-  <i class="icon left xi-link" />
-  NT Toast
-  <span class="in-badge be-green">vue</span>
-  <a class="link" href="https://noistommy.github.io/vue-nt-toast" target="_blank" />
-</div>
-Demo page
 
 ## Install
 

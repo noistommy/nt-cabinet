@@ -28,6 +28,18 @@ directive를 이용하여 제작된 툴팁은 vue template 작성 시 엘리먼�
 
 기본적으로 최상단 레이어( root(#app) 외부에 생성)에서 동작하여 다른 엘리먼트보다 높은 z-index 값을 갖게 되며 viewport에 의한 충돌을 보정하여 항상 컨텐츠가 화면상에 보이도록 합니다.
 
+## Demo
+
+모든 옵션 및 실행 테스트 가능한 공식 페이지입니다.
+
+![docs_preview](../public/img/tooltip_preview.png)
+
+<div class="be-button text">
+  <i class="icon left xi-link" />
+  Go to Demo
+  <a class="link" href="https://noistommy.github.io/vue-nt-tooltip" target="_blank" />
+</div>
+
 ## Example
 
 각 방향별 툴팁 표시 예제입니다.
@@ -40,19 +52,6 @@ directive를 이용하여 제작된 툴팁은 vue template 작성 시 엘리먼�
     <div class="be-button" v-nt-tooltip:right="`Tooltip Right`">right</div>
   </div>
 </div>
-
-## Demo
-
-모든 옵션 및 실행 테스트 가능한 공식 페이지입니다.
-
-![docs_preview](../public/img/tooltip_preview.png)
-
-<div class="be-button" v-nt-tooltip="`Tooltip test`">
-  <i class="icon left xi-link" />
-  NT Tooptip
-  <a class="link" href="https://noistommy.github.io/vue-nt-tooltip" target="_blank" />
-</div>
-Demo page
 
 ## Install
 

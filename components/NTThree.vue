@@ -262,7 +262,7 @@
   watch(() => lean.value,(newValue, oldValue) => {
       
       const num = parseInt(Math.random() * 100) % gesture.length
-      console.log(oldValue, newValue)
+      // console.log(oldValue, newValue)
       if (newValue) {
         playAnimation('Walk Left', newValue > 0)
       } else {

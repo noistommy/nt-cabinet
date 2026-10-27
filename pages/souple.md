@@ -20,6 +20,8 @@ outline: deep
 <BeTag class="red">NPM</BeTag>
 <BeTag class="gray">Utills</BeTag>
 
+_2026년 10월 개발_ | _React 기반_ | _NPM_ | _라이브러리_
+
 ## 소개
 
 Souple (souple / 수플) : 프랑스어로 '유연한, 신축성 있는'이라는 뜻으로, 반응형(Flexible)의 의미를 그대로 담고 있습니다.

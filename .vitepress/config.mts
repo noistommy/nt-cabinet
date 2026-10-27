@@ -9,19 +9,11 @@ export default defineConfig({
     logo: { src: '/logo_tom.png', alt: 'logo' },
     nav: [
       { text: 'Resume', link: '/resume' },
-      // { text: 'Journey for BEUI', link: '/beui/'  },
-      { text: 'NT Module', items: [
-        { text: 'React', items: [
-          { text: 'Modal', link: '/module/modal_react' },
-          { text: 'Toast', link: '/module/toast_react' },
-          { text: 'Tooltip', link: '/module/tooltip' },
-        ]},
-        { text: 'Vue', items: [
-          { text: 'Modal', link: '/module/modal' },
-          { text: 'Toast', link: '/module/toast_vue' },
-          { text: 'Tooltip', link: '/module/tooltip_vue' },
-        ]},
+      { text: 'Projects', items: [
+        { text: 'Frog UI', link: '/project/frogui' },
+        { text: 'BEUI', link: '/project/beui' },
       ] },
+      { text: 'NT Module', link: '/module/modal_react'},
       { text: 'Works', items: [
         { text: 'Souple', link: '/pages/souple' },
         { text: 'Scrollspy', link: '/pages/scrollspy' },
@@ -57,16 +49,18 @@ export default defineConfig({
         {
           text: 'NT Module',
           items: [
-            { text: 'for React', items: [
-              { text: 'Modal', link: '/module/modal_react' },
-              { text: 'Toast', link: '/module/toast_react' },
-              { text: 'Tooltip', link: '/module/tooltip' },
-            ] },
-            { text: 'for Vue', items: [
-              { text: 'Toast', link: '/module/toast_vue' },
-              { text: 'Modal', link: '/module/modal' },
-              { text: 'Tooltip', link: '/module/tooltip_vue' },
-            ] },
+            {text: "Modal" , items: [
+              { text: 'React', link: '/module/modal_react'},
+              { text: 'Vue', link: '/module/modal'},
+            ]},
+            {text: "Toast" , items: [
+              { text: 'React', link: '/module/toast_react'},
+              { text: 'Vue', link: '/module/toast_vue'},
+            ]},
+            {text: "Tooltip" , items: [
+              { text: 'React', link: '/module/tooltip'},
+              { text: 'Vue', link: '/module/tooltip_vue'},
+            ]},
           ]
         }
       ],
@@ -97,7 +91,7 @@ export default defineConfig({
     // ],
     footer: {
       message: '',
-      copyright: 'Copyright © 2016-present Kim Minyoung a.k.a noistommy'
+      copyright: 'Copyright 2016-present Kim Minyoung a.k.a noistommy.'
     }
   }
 })

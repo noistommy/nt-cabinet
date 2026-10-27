@@ -33,14 +33,17 @@ _2026년 개발_
 
 다양한 옵션을 확인할 수 있는 공식 페이지입니다.
 
+<div class="be-segment border">
+
 ![modal_react_preview](../public/img/preview/nt-modal-preview-light.png)
 
-<div class="be-button">
+</div>
+
+<div class="be-button text">
   <i class="icon left xi-link" />
-  NT Modal (React)
+  Go to Demo
   <a class="link" href="https://noistommy.github.io/react-nt-modal" target="_blank" />
 </div>
-Demo page
 
 ## Install
 

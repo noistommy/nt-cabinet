@@ -31,15 +31,18 @@ React 프로젝트 내 `context api`를 통해서 사용 가능 하도록 제작
 
 모든 타입, 옵션 테스트가 가능한 공식 사이트입니다.
 
+<div class="be-segment border">
+
 ![toast_react_preview](../public/img/preview/nt-toast-preview-light.png)
 
-<div class="be-button badge">
+</div>
+
+<div class="be-button badge text">
   <i class="icon left xi-link" />
-  NT Toast
+  Go to Demo
   <span class="in-badge be-deepblue">react</span>
   <a class="link" href="https://noistommy.github.io/react-nt-toast" target="_blank" />
 </div>
-Demo page
 
 ## Install
 

@@ -2,13 +2,13 @@
 layout: doc
 
 title: NT-Roulette
-#titleTemplate: 
-# description:  
+#titleTemplate:
+# description:
 lastUpdated: true
 editLink: true
 navbar: true
 sidebar: true
-aside:  true
+aside: true
 outline: deep
 ---
 
@@ -19,6 +19,8 @@ outline: deep
 <BeTag class="red">NPM</BeTag>
 <BeTag class="brown">Game</BeTag>
 
+_2025년 개발_ | _Vue 기반_ | _NPM_ | _웹 게임_
+
 ## 소개
 
 `nt-roulette`은 `SVG`를 이용하여 구현된 룰렛입니다. 디테일한 애니메이션 조정을 통해 실제 룰렛의 물리적인 움직임과 비슷하게 동작하도록 구현 되었습니다.
@@ -28,7 +30,6 @@ outline: deep
 설정을 통해 각 조각의 색상 패턴과 내부 텍스트를 지정 할 수 있고 룰렛의 모양, 애니메이션 스피드를 조정 할 수 있습니다.
 
 선택이 필요한 UI에 사용하면 보다 역동적인 사이트가 되지 않을까요??
-
 
 ## Demo
 
@@ -68,15 +69,16 @@ import NtRoulette from 'nt-roulette';
   state="running"
 />
 ```
+
 ## Props
 
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| data | *array* | `null` | data array의 크기에 따라 룰렛 조각의 수가 결정된다. |
-| holeSize | *number* | `0` | 룰렛을 도넷 형태로 만들기 위한 중앙 원의 크기. |
-| textInfo | *object* | `{}` | 룰렛에 표시 되는 텍스트 스타일 (font-size, font-weight, color). |
-| colors | *array* | `[]` | 룰렛 조각의 배경 색상 목록 목록의 색상을 순서대로 표시하며 목록을 반복하며 색상 패턴을 만든다. |
-| state | *string* | `pause` | 룰렛 실행을 위한 상태. running: 실행, pause: 정지, reset: 초기화 |
+| Name     | Type     | Default | Description                                                                                    |
+| -------- | -------- | ------- | ---------------------------------------------------------------------------------------------- |
+| data     | _array_  | `null`  | data array의 크기에 따라 룰렛 조각의 수가 결정된다.                                            |
+| holeSize | _number_ | `0`     | 룰렛을 도넷 형태로 만들기 위한 중앙 원의 크기.                                                 |
+| textInfo | _object_ | `{}`    | 룰렛에 표시 되는 텍스트 스타일 (font-size, font-weight, color).                                |
+| colors   | _array_  | `[]`    | 룰렛 조각의 배경 색상 목록 목록의 색상을 순서대로 표시하며 목록을 반복하며 색상 패턴을 만든다. |
+| state    | _string_ | `pause` | 룰렛 실행을 위한 상태. running: 실행, pause: 정지, reset: 초기화                               |
 
 ## Link
 
